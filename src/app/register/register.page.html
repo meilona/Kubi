@@ -8,6 +8,14 @@
   <form class="form" [formGroup]="regisForm" (ngSubmit)="tryRegister(regisForm.value)">
 
     <ion-item>
+      <ion-label position = "floating" color="primary">Nama</ion-label>
+      <ion-input type="text" formControlName="name"> </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Tanggal Lahir</ion-label>
+      <ion-datetime displayFormat="DD MMMM YYYY" formControlName="birthDate"></ion-datetime>
+    </ion-item>
+    <ion-item>
       <ion-label position="floating" color="primary">Email</ion-label>
       <ion-input type="text" formControlName="email"></ion-input>
     </ion-item>
@@ -35,6 +43,7 @@
 
 
     <ion-button class="submit-btn" type="submit" [disabled]="!regisForm.valid">Register</ion-button>
+    <br>
     <label class="error-message">{{errorMessage}}</label>
     <label class="success-message">{{successMessage}}</label>
   </form>

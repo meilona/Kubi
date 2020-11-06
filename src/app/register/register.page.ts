@@ -41,6 +41,12 @@ export class RegisterPage implements OnInit {
         Validators.minLength(5),
         Validators.required
       ])),
+      name: new FormControl('', Validators.compose([
+        Validators.required
+      ])),
+      birthDate: new FormControl('', Validators.compose([
+        Validators.required
+      ]))
     });
   }
 
@@ -48,8 +54,11 @@ export class RegisterPage implements OnInit {
     this.authService.registerUser(value)
         .then(res => {
           console.log(res);
-          this.errorMessage = '';
-          this.successMessage = 'Your account has been created. Please log in.';
+          // this.errorMessage = '';
+          // this.successMessage = 'Your account has been created. Please log in.';
+          this.authService.loginUser(value).then(() => {
+            this.navCtrl.navigateForward('/home');
+          });
         }, err => {
           console.log(err);
           this.errorMessage = err.message;

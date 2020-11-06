@@ -1,22 +1,53 @@
 import { Injectable } from '@angular/core';
 import {AngularFireAuth} from '@angular/fire/auth';
+import {AngularFirestore, AngularFirestoreCollection} from '@angular/fire/firestore';
+import {Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
+import firebase from 'firebase';
+import {User} from '../models/user.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  private userCollection: AngularFirestoreCollection<User>;
+  private users: Observable<User[]>;
 
   constructor(
-      private afAuth: AngularFireAuth
-  ) { }
+      private afAuth: AngularFireAuth,
+      private db: AngularFirestore
+  ) {
+    this.userCollection = db.collection<User> ('users');
+    this.users = this.userCollection.snapshotChanges().pipe(
+        map (actions => {
+          return actions.map (a => {
+            const data = a.payload.doc.data();
+            const id = a.payload.doc.id;
+            return {id, ... data};
+          });
+        })
+    );
+  }
 
   registerUser(value) {
     return new Promise<any>((resolve, reject) => {
 
       this.afAuth.createUserWithEmailAndPassword(value.email, value.password)
           .then(
-              res => resolve(res),
-              err => reject(err));
+              res => {
+                console.log('User id after reigstration = ' + res.user.uid);
+                const user: User = {
+                  id: res.user.uid,
+                  email: value.email,
+                  name: value.name,
+                  birthDate: value.birthDate
+                };
+                this.userCollection.doc(res.user.uid).set(user);
+                resolve(res);
+              }, err => {
+                reject(err);
+              }
+          );
     });
 
   }
@@ -46,5 +77,13 @@ export class AuthService {
 
   userDetails() {
     return this.afAuth.user;
+  }
+
+  getCurrentUser() {
+    if (firebase.auth().currentUser) {
+       return firebase.auth().currentUser;
+    } else {
+       return null;
+    }
   }
 }
