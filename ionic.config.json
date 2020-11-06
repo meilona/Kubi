@@ -1,5 +1,7 @@
 {
   "name": "Kubi",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
