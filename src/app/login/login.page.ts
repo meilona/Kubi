@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
-import { NavController } from '@ionic/angular';
+import { NavController} from '@ionic/angular';
 import { AuthService } from '../services/auth.service';
 
 @Component({
@@ -11,7 +11,6 @@ import { AuthService } from '../services/auth.service';
 export class LoginPage implements OnInit {
 
   constructor(
-
       private navCtrl: NavController,
       private authService: AuthService,
       private formBuilder: FormBuilder
@@ -45,7 +44,6 @@ export class LoginPage implements OnInit {
       ])),
     });
   }
-
 
   loginUser(value) {
     this.authService.loginUser(value)

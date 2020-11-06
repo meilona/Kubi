@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>forgot</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content no-padding>
+  <form class="form" [formGroup]="forgotForm" (ngSubmit)="tryForgot(forgotForm.value)">
+    <ion-text>Enter your email below and we'll send your instructions to recover your password</ion-text>
+
+    <ion-item>
+      <ion-label position="floating" color="primary">Email</ion-label>
+      <ion-input type="text" formControlName="email"></ion-input>
+    </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validationMessages.email">
+        <div class="error-message"
+             *ngIf="forgotForm.get('email').hasError(validation.type) && (forgotForm.get('email').dirty || forgotForm.get('email').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+
+    <ion-text class="error" text-center>{{error}}</ion-text>
+
+    <ion-button class="submit-btn" type="submit" [disabled]="!forgotForm.valid">Recover</ion-button>
+
+  </form>
+  <p class="go-to-login">Already have an account? <a routerLink="/login">Try to Log In.</a></p>
+</ion-content>

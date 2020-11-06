@@ -35,9 +35,13 @@
 
     <ion-button class="submit-btn" type="submit" [disabled]="!validationForm.valid">Log In</ion-button>
 
-    <label class="error-message">{{errorMessage}}</label>
+    <ion-text class="error-message" text-center>{{errorMessage}}</ion-text>
   </form>
-  <p class="go-to-register">
+  <p>
+    <ion-text class="block bold" routerLink="/forgot">Forgot Password</ion-text>
+  </p>
+  <p>
     No account yet? <a (click)="goToRegisterPage()">Create an account.</a>
   </p>
+
 </ion-content>
