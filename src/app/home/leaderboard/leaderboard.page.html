@@ -1,27 +1,65 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
     <ion-title>leaderboard</ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
 <ion-content>
-  <ion-tabs>
-    <ion-tab-bar slot="bottom">
+  <ion-avatar style="padding-top: 20px;">
+    <ion-img src="./assets/image/1.png" style="padding-bottom: 5px; width: 170px; height: 170px; position: absolute; top: 15%; display: block; left: 50%; transform: translate(-50%, -50%);"></ion-img>
+  </ion-avatar>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col style="padding-top: 5em;">
+        <h1 style="text-align: center;">Kejuaraan jalak bali</h1>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-list>
+          <ion-item>
+            <ion-label>Pokémon Yellow</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label>Mega Man X</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label>The Legend of Zelda</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label>Pac-Man</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label>Super Mario World</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    </ion-grid>
   
-      <ion-tab-button >
-        <ion-icon name="trophy-outline"></ion-icon>
-        <!-- <ion-label>Leaderboard</ion-label> -->
-      </ion-tab-button>
-  
-      <ion-tab-button [routerLink]="['/','home']">
-        <ion-icon name="apps-outline"></ion-icon>
-        <!-- <ion-label>Menu</ion-label> -->
-      </ion-tab-button>
-  
-      <ion-tab-button [routerLink]="['/','home','profile']">
-        <ion-icon name="person-outline"></ion-icon>
-        <!-- <ion-label>Profile</ion-label> -->
-      </ion-tab-button>
-    </ion-tab-bar>
-  </ion-tabs>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-tabs>
+      <ion-tab-bar slot="bottom">
+    
+        <ion-tab-button >
+          <ion-icon name="trophy-outline"></ion-icon>
+          <!-- <ion-label>Leaderboard</ion-label> -->
+        </ion-tab-button>
+    
+        <ion-tab-button [routerLink]="['/','home']">
+          <ion-icon name="apps-outline"></ion-icon>
+          <!-- <ion-label>Menu</ion-label> -->
+        </ion-tab-button>
+    
+        <ion-tab-button [routerLink]="['/','home','profile']">
+          <ion-icon name="person-outline"></ion-icon>
+          <!-- <ion-label>Profile</ion-label> -->
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </ion-toolbar>
+</ion-footer>

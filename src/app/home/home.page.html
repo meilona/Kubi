@@ -1,6 +1,9 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Home</ion-title>
+    <ion-title slot="start">Hai, {{userName}}</ion-title>
+    <ion-avatar slot="end" style="padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" >
+      <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/98/John_Wick_TeaserPoster.jpg/220px-John_Wick_TeaserPoster.jpg">
+    </ion-avatar>
   </ion-toolbar>
 </ion-header>
 
@@ -9,15 +12,86 @@
   <ion-grid>
     <ion-row>
       <ion-col text-center>
-        Welcome to Dashboard!
+        <ion-card style="height: 200px;">
+          <ion-card-header>
+            <ion-card-title style="text-align: center;">TOTAL SKOR</ion-card-title>
+          </ion-card-header>
+        
+          <ion-card-content style="align-items: center;">
+            <h2 style="border: 1px solid red;
+            outline: 5px dotted green; text-align: center; font-size: 30px;">A Heading with a </h2>
+            <h1 style="padding-top: 20px; text-align: center;">Poin</h1>
+          </ion-card-content>
+        </ion-card>
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col text-center>
-        Your Registered EmailID : {{userEmail}}
+      <ion-col center>
+        <ion-label style="text-align:center;">Ayo Belajar Budaya Indonesia!</ion-label>
+        <br>
+        <ion-label style="text-align:center;">Pilih Kategori!</ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-slides>
+          <ion-slide>
+            <ion-card style="width: 85%; height: 90%; background-color: aqua;">
+              <!-- <img style="width: 85%;" src="https://upload.wikimedia.org/wikipedia/en/thumb/9/98/John_Wick_TeaserPoster.jpg/220px-John_Wick_TeaserPoster.jpg"> -->
+              <ion-card-header>
+                <ion-card-title style="text-align:center;padding-top:20px; font-size: 24px; font-weight: bold;">Musik</ion-card-title>
+              </ion-card-header>
+            
+              <ion-card-content>
+                  <ion-label>ditambahin kata2 aja biar cardnya kebawah ya kali gak apasih aduh pusing ditambahin apa apa apapapapapa</ion-label>
+                <br><br>
+                <ion-button class="submit-btn" class="primary" (click)="musik()">Mulai</ion-button>
+              </ion-card-content>
+              
+            </ion-card>
+          </ion-slide>
+          <ion-slide>
+            <ion-card style="width: 85%; height: 90%; background-color: aqua;">
+              <!-- <img style="width: 85%;" src="https://upload.wikimedia.org/wikipedia/en/thumb/9/98/John_Wick_TeaserPoster.jpg/220px-John_Wick_TeaserPoster.jpg"> -->
+              <ion-card-header>
+                <ion-card-title style="text-align:center;padding-top:20px; font-size: 24px; font-weight: bold;">Tempat</ion-card-title>
+              </ion-card-header>
+            
+              <ion-card-content>
+                <!-- <ion-item> -->
+                  <ion-label center>ditambahin kata2 aja biar cardnya kebawah ya kali gak apasih aduh pusing ditambahin apa apa apapapapapa</ion-label>
+                <!-- </ion-item> -->
+                <br><br>
+                <ion-button class="submit-btn" class="primary">Mulai</ion-button>
+              </ion-card-content>
+              
+            </ion-card>
+          </ion-slide>
+          <ion-slide>
+            <ion-card style="width: 85%; height: 90%; background-color: aqua;">
+              <!-- <img style="width: 85%;" src="https://upload.wikimedia.org/wikipedia/en/thumb/9/98/John_Wick_TeaserPoster.jpg/220px-John_Wick_TeaserPoster.jpg"> -->
+              <ion-card-header>
+                <ion-card-title style="text-align:center;padding-top:20px; font-size: 24px; font-weight: bold;">Makanan</ion-card-title>
+              </ion-card-header>
+            
+              <ion-card-content>
+                <!-- <ion-item> -->
+                  <ion-label>ditambahin kata2 aja biar cardnya kebawah ya kali gak apasih aduh pusing ditambahin apa apa apapapapapa</ion-label>
+                <!-- </ion-item> -->
+                <br><br>
+                <ion-button class="submit-btn" class="primary">Mulai</ion-button>
+              </ion-card-content>
+              
+            </ion-card>
+          </ion-slide>
+        </ion-slides>
       </ion-col>
     </ion-row>
   </ion-grid>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
   <ion-tabs>
     <ion-tab-bar slot="bottom">
   
@@ -37,8 +111,8 @@
       </ion-tab-button>
     </ion-tab-bar>
   </ion-tabs>
-</ion-content>
-
+</ion-toolbar>
+</ion-footer>
 
 <!-- <ion-footer (click)="logout()">
   <ion-toolbar color="secondary">
