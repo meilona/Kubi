@@ -7,14 +7,19 @@ const routes: Routes = [
   {
     path: '',
     component: HomePage
-  },  {
+  },
+  {
     path: 'profile',
     loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
   },
   {
     path: 'leaderboard',
     loadChildren: () => import('./leaderboard/leaderboard.module').then( m => m.LeaderboardPageModule)
-  }
+  },
+  {
+    path: ':questionid',
+    loadChildren: () => import('./questions/questions.module').then( m => m.QuestionsPageModule)
+  },
 
 ];
 

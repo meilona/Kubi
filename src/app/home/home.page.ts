@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../services/auth.service';
 import {NavController} from '@ionic/angular';
+import {Question} from '../models/question.model';
+import {QuestionService} from '../services/question.service';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +16,7 @@ export class HomePage implements OnInit {
 
   constructor(
       private navCtrl: NavController,
-      private authService: AuthService,
+      private authService: AuthService
   ) { }
 
   ngOnInit() {
@@ -46,7 +48,7 @@ export class HomePage implements OnInit {
   }
 
   musik(){
-    this.navCtrl.navigateForward('/question');
+    this.navCtrl.navigateForward('/questions');
     // console.log('to musik question');
   }
 

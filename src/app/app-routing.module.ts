@@ -24,8 +24,8 @@ const routes: Routes = [
     loadChildren: () => import('./forgot/forgot.module').then( m => m.ForgotPageModule)
   },
   {
-    path: 'question',
-    loadChildren: () => import('./question/question.module').then( m => m.QuestionPageModule)
+    path: ':questionid',
+    loadChildren: () => import('./home/questions/questions.module').then( m => m.QuestionsPageModule)
   },
 
 
