@@ -46,7 +46,8 @@ export class HomePage implements OnInit {
   }
 
   musik(){
-    console.log("to musik question");
+    this.navCtrl.navigateForward('/question');
+    // console.log('to musik question');
   }
 
 }
