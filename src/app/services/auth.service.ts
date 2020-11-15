@@ -40,7 +40,9 @@ export class AuthService {
                   id: res.user.uid,
                   email: value.email,
                   name: value.name,
-                  birthDate: value.birthDate
+                  birthDate: value.birthDate,
+                  totalskor: 0,
+                  liga: 'Jalak Bali',
                 };
                 this.userCollection.doc(res.user.uid).set(user);
                 resolve(res);

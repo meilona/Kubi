@@ -5,11 +5,15 @@
 </ion-header> -->
 
 <ion-content>
-  <ion-avatar style="padding-top: 20px;">
-    <ion-img src="./assets/image/1.png" style="padding-bottom: 5px; width: 170px; height: 170px; position: absolute; top: 15%; display: block; left: 50%; transform: translate(-50%, -50%);"></ion-img>
-  </ion-avatar>
-
+  
   <ion-grid>
+    <ion-row >
+      <ion-col> <!-- saya raiso ketengahinnya-->
+        <ion-avatar>
+          <ion-img src="./assets/image/1.png" style="padding-bottom: 5px; width: 170px; height: 170px; position: absolute; top: 18%; display: block; left: 50%; transform: translate(-50%, -50%);"></ion-img>
+        </ion-avatar>
+      </ion-col>
+    </ion-row>
     <ion-row>
       <ion-col style="padding-top: 5em;">
         <h1 style="text-align: center;">Kejuaraan jalak bali</h1>
@@ -17,23 +21,22 @@
     </ion-row>
     <ion-row>
       <ion-col>
+        <ion-card>
+
+        
         <ion-list>
-          <ion-item>
-            <ion-label>Pokémon Yellow</ion-label>
-          </ion-item>
-          <ion-item>
-            <ion-label>Mega Man X</ion-label>
-          </ion-item>
-          <ion-item>
-            <ion-label>The Legend of Zelda</ion-label>
-          </ion-item>
-          <ion-item>
-            <ion-label>Pac-Man</ion-label>
-          </ion-item>
-          <ion-item>
-            <ion-label>Super Mario World</ion-label>
+          <ion-item *ngFor="let liga of user">
+              <ion-avatar>
+                <img src="https://cdn.idntimes.com/content-images/community/2019/02/2018-02-01-39875-1517462499-large-60d97e6631e637497c2db252b926af17_600x400.jpg">
+              </ion-avatar>
+
+              <ion-label style="padding-left: 10px;">
+                <h2>{{ liga.data.name }}</h2>
+                <p>{{ liga.data.totalskor }} Xp</p>
+              </ion-label>
           </ion-item>
         </ion-list>
+      </ion-card>
       </ion-col>
     </ion-row>
     </ion-grid>

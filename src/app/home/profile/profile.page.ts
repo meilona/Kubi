@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import {AuthService} from '../../services/auth.service';
-import {NavController} from '@ionic/angular';
+import { NavController} from '@ionic/angular';
+
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.page.html',
@@ -10,6 +12,8 @@ export class ProfilePage implements OnInit {
   User :any;
   constructor(private navCtrl: NavController,
     private authService: AuthService) { }
+
+ 
 
   ngOnInit() {
     this.authService.userDetails().subscribe(res => {
@@ -23,5 +27,6 @@ export class ProfilePage implements OnInit {
       console.log('err', err);
     });
   }
+
 
 }

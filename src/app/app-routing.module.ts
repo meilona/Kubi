@@ -24,9 +24,15 @@ const routes: Routes = [
     loadChildren: () => import('./forgot/forgot.module').then( m => m.ForgotPageModule)
   },
   {
+    path: 'beforelogin',
+    loadChildren: () => import('./beforelogin/beforelogin.module').then( m => m.BeforeloginPageModule)
+  },
+  {
     path: ':questionid',
     loadChildren: () => import('./home/questions/questions.module').then( m => m.QuestionsPageModule)
   },
+  
+
 
 
   // {
