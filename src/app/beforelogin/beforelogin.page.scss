@@ -10,21 +10,29 @@ ion-slide {
     flex-direction: column;
     text-align: justify;
 }
-
 ion-img {
-    max-width: 50vw;
-    max-height: 50vh;
+    max-width: 80vw;
+    max-height: 80vh;
     overflow: hidden;
 }
 
-p {
-    padding: 1em;
+h1{
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 25px;
+    color: black;
 }
 
-// .step-one {
-//     background: var(--ion-color-primary);
-//     color: var(--ion-color-primary-contrast);
-// }
+p {
+    color: black;
+    padding: 1em;
+    text-align: center;
+}
+
+.step-one {
+    background: #8ccfff; // var(--ion-color-primary);
+    color:  #8ccfff; //var(--ion-color-primary-contrast);
+}
 
 // .step-two {
 //     background: var(--ion-color-success);
