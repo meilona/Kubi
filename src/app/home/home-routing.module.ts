@@ -17,7 +17,7 @@ const routes: Routes = [
     loadChildren: () => import('./leaderboard/leaderboard.module').then( m => m.LeaderboardPageModule)
   },
   {
-    path: ':questionid',
+    path: ':questionId',
     loadChildren: () => import('./questions/questions.module').then( m => m.QuestionsPageModule)
   },
 

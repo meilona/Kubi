@@ -13,13 +13,16 @@ export class HomePage implements OnInit {
 
   userEmail: string;
   userName: string;
+  question: Question[];
 
   constructor(
       private navCtrl: NavController,
-      private authService: AuthService
+      private authService: AuthService,
+      private questionService: QuestionService
   ) { }
 
   ngOnInit() {
+    this.question =this.questionService.getAllQuestion();
 
     this.authService.userDetails().subscribe(res => {
       console.log('res', res);

@@ -10,21 +10,16 @@ import {QuestionService} from '../../services/question.service';
 })
 export class QuestionsPage implements OnInit {
   loadedQuestion: Question;
-  // question: Question[];
-
   constructor(
       private activatedRoute: ActivatedRoute,
-      private questionService: QuestionService,
-      private router: Router
+      private questionService: QuestionService
   ) { }
 
   ngOnInit() {
     this.activatedRoute.paramMap.subscribe(paramMap => {
-      if (!paramMap.has('questionid')){ return; }
-      const questionid = paramMap.get('questionid');
-
-      this.loadedQuestion = this.questionService.getQuestion(questionid);
-      // console.log(this.loadedQuestion.id);
+      if (!paramMap.has('questionId')){ return; }
+      const questionId = paramMap.get('questionId');
+      this.loadedQuestion = this.questionService.getQuestion(questionId);
     });
   }
 

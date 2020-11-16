@@ -8,7 +8,8 @@ export class QuestionService {
   private question: Question[] = [
     {
       id: 'item1',
-      kategori: 'musik',
+      category: 'Musik',
+      image: 'https://i1.wp.com/satujam.com/data/2015/06/indonesian-tradition.blogspot.in_.jpg?fit=900%2C600&ssl=1',
       questions: 'pertanyaan 1',
       choices1: 'pilihan 1',
       choices2: 'pilihan 2',
@@ -17,7 +18,8 @@ export class QuestionService {
     },
     {
       id: 'item2',
-      kategori: 'makanan',
+      category: 'Makanan',
+      image: 'https://cdn.idntimes.com/content-images/post/20181212/kuliner-indonessdsdia-87489b810390089e5d15cb5fbdc66865_600x400.jpg',
       questions: 'pertanyaan 1',
       choices1 : 'pilihan 1',
       choices2 : 'pilihan 2',
@@ -26,7 +28,8 @@ export class QuestionService {
     },
     {
       id: 'item3',
-      kategori: 'tempat',
+      category: 'Tempat',
+      image: 'https://cdn.idntimes.com/content-images/community/2019/02/2018-02-01-39875-1517462499-large-60d97e6631e637497c2db252b926af17_600x400.jpg',
       questions: 'pertanyaan 1',
       choices1 : 'pilihan 1',
       choices2 : 'pilihan 2',
@@ -40,9 +43,9 @@ export class QuestionService {
     return[...this.question];
   }
 
-  getQuestion(id: string){
+  getQuestion(questionId: string){
     return {...this.question.find(question => {
-      return question.id === id;
+      return question.id === questionId;
     })};
   }
 }

@@ -1,6 +1,7 @@
 export interface Question{
     id: string;
-    kategori: string;
+    category: string;
+    image: string;
     questions: string;
     choices1: string;
     choices2: string;

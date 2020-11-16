@@ -16,7 +16,6 @@
           <ion-card-header>
             <ion-card-title style="text-align: center;">TOTAL SKOR</ion-card-title>
           </ion-card-header>
-        
           <ion-card-content style="align-items: center;">
             <h2 style="border: 1px solid red; background-color: aqua;
             outline: 5px dotted green; text-align: center; font-size: 30px;">A Heading with a </h2>
@@ -27,67 +26,61 @@
     </ion-row>
     <ion-row>
       <ion-col center>
-        <ion-label style="text-align:center;">Ayo Belajar Budaya Indonesia!</ion-label>
-        <br>
-        <ion-label style="text-align:center;">Pilih Kategori!</ion-label>
+        <ion-label style="font-size: larger; position: center" >Ayo Belajar Budaya Indonesia!</ion-label>
+        <br><br>
+        <ion-label style="margin-left: auto; font-size: large">Pilih Kategori!</ion-label>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
         <ion-slides>
-          <ion-slide>
-            <ion-card style="width: 85%; height: 22%; background-color: aqua;">
-              <!-- <img style="width: 85%;" src="https://upload.wikimedia.org/wikipedia/en/thumb/9/98/John_Wick_TeaserPoster.jpg/220px-John_Wick_TeaserPoster.jpg"> -->
-              <img src="https://i1.wp.com/satujam.com/data/2015/06/indonesian-tradition.blogspot.in_.jpg?fit=900%2C600&ssl=1"/>
-              <ion-card-title style="text-align:center;padding-top:30px; font-size: 24px; font-weight: bold;">Musik</ion-card-title>
+          <ion-slide *ngFor="let question of question">
+            <ion-card class="card">
+              <ion-img class="image" [src]="question.image"></ion-img>
+              <ion-card-title class="title">{{question.category}}</ion-card-title>
+                <ion-card-content>
+                    <ion-label>ditambahin kata2 aja biar cardnya kebawah ya kali gak apasih aduh pusing ditambahin apa apa apapapapapa</ion-label>
+                    <br><br>
+                    <ion-button class="submit-btn" class="primary" (click)="musik()">Mulai</ion-button>
+                </ion-card-content>
+            </ion-card>
+          </ion-slide>
+<!--          <ion-slide>-->
+<!--            <ion-card style="width: 85%; height: 22%; background-color: aqua;">-->
+<!--              &lt;!&ndash; <img style="width: 85%;" src="https://upload.wikimedia.org/wikipedia/en/thumb/9/98/John_Wick_TeaserPoster.jpg/220px-John_Wick_TeaserPoster.jpg"> &ndash;&gt;-->
+<!--              <img src="https://cdn.idntimes.com/content-images/community/2019/02/2018-02-01-39875-1517462499-large-60d97e6631e637497c2db252b926af17_600x400.jpg"/>-->
 <!--              <ion-card-header>-->
-<!--                <ion-card-title style="text-align:center;padding-top:20px; font-size: 24px; font-weight: bold;">Musik</ion-card-title>-->
+<!--                <ion-card-title style="text-align:center;padding-top:10px; font-size: 24px; font-weight: bold;">Tempat</ion-card-title>-->
 <!--              </ion-card-header>-->
-            
-              <ion-card-content>
-                  <ion-label>ditambahin kata2 aja biar cardnya kebawah ya kali gak apasih aduh pusing ditambahin apa apa apapapapapa</ion-label>
-                <br><br>
-                <ion-button class="submit-btn" class="primary" (click)="musik()">Mulai</ion-button>
-              </ion-card-content>
-              
-            </ion-card>
-          </ion-slide>
-          <ion-slide>
-            <ion-card style="width: 85%; height: 22%; background-color: aqua;">
-              <!-- <img style="width: 85%;" src="https://upload.wikimedia.org/wikipedia/en/thumb/9/98/John_Wick_TeaserPoster.jpg/220px-John_Wick_TeaserPoster.jpg"> -->
-              <img src="https://cdn.idntimes.com/content-images/community/2019/02/2018-02-01-39875-1517462499-large-60d97e6631e637497c2db252b926af17_600x400.jpg"/>
-              <ion-card-header>
-                <ion-card-title style="text-align:center;padding-top:10px; font-size: 24px; font-weight: bold;">Tempat</ion-card-title>
-              </ion-card-header>
-            
-              <ion-card-content>
-                <!-- <ion-item> -->
-                  <ion-label center>ditambahin kata2 aja biar cardnya kebawah ya kali gak apasih aduh pusing ditambahin apa apa apapapapapa</ion-label>
-                <!-- </ion-item> -->
-                <br><br>
-                <ion-button class="submit-btn" class="primary" (click)="musik()">Mulai</ion-button>
-              </ion-card-content>
-              
-            </ion-card>
-          </ion-slide>
-          <ion-slide>
-            <ion-card style="width: 85%; height: 20%; background-color: aqua;">
-              <!-- <img style="width: 85%;" src="https://upload.wikimedia.org/wikipedia/en/thumb/9/98/John_Wick_TeaserPoster.jpg/220px-John_Wick_TeaserPoster.jpg"> -->
-              <img src="https://cdn.idntimes.com/content-images/post/20181212/kuliner-indonessdsdia-87489b810390089e5d15cb5fbdc66865_600x400.jpg"/>
-              <ion-card-header>
-                <ion-card-title style="text-align:center;padding-top:10px; font-size: 24px; font-weight: bold;">Makanan</ion-card-title>
-              </ion-card-header>
-            
-              <ion-card-content>
-                <!-- <ion-item> -->
-                  <ion-label>ditambahin kata2 aja biar cardnya kebawah ya kali gak apasih aduh pusing ditambahin apa apa apapapapapa</ion-label>
-                <!-- </ion-item> -->
-                <br><br>
-                <ion-button class="submit-btn" class="primary" (click)="musik()">Mulai</ion-button>
-              </ion-card-content>
-              
-            </ion-card>
-          </ion-slide>
+<!--            -->
+<!--              <ion-card-content>-->
+<!--                &lt;!&ndash; <ion-item> &ndash;&gt;-->
+<!--                  <ion-label center>ditambahin kata2 aja biar cardnya kebawah ya kali gak apasih aduh pusing ditambahin apa apa apapapapapa</ion-label>-->
+<!--                &lt;!&ndash; </ion-item> &ndash;&gt;-->
+<!--                <br><br>-->
+<!--                <ion-button class="submit-btn" class="primary" (click)="musik()">Mulai</ion-button>-->
+<!--              </ion-card-content>-->
+<!--              -->
+<!--            </ion-card>-->
+<!--          </ion-slide>-->
+<!--          <ion-slide>-->
+<!--            <ion-card style="width: 85%; height: 20%; background-color: aqua;">-->
+<!--              &lt;!&ndash; <img style="width: 85%;" src="https://upload.wikimedia.org/wikipedia/en/thumb/9/98/John_Wick_TeaserPoster.jpg/220px-John_Wick_TeaserPoster.jpg"> &ndash;&gt;-->
+<!--              <img src="https://cdn.idntimes.com/content-images/post/20181212/kuliner-indonessdsdia-87489b810390089e5d15cb5fbdc66865_600x400.jpg"/>-->
+<!--              <ion-card-header>-->
+<!--                <ion-card-title style="text-align:center;padding-top:10px; font-size: 24px; font-weight: bold;">Makanan</ion-card-title>-->
+<!--              </ion-card-header>-->
+<!--            -->
+<!--              <ion-card-content>-->
+<!--                &lt;!&ndash; <ion-item> &ndash;&gt;-->
+<!--                  <ion-label>ditambahin kata2 aja biar cardnya kebawah ya kali gak apasih aduh pusing ditambahin apa apa apapapapapa</ion-label>-->
+<!--                &lt;!&ndash; </ion-item> &ndash;&gt;-->
+<!--                <br><br>-->
+<!--                <ion-button class="submit-btn" class="primary" (click)="musik()">Mulai</ion-button>-->
+<!--              </ion-card-content>-->
+<!--              -->
+<!--            </ion-card>-->
+<!--          </ion-slide>-->
         </ion-slides>
       </ion-col>
     </ion-row>
