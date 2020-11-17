@@ -12,7 +12,7 @@ import {QuestionService} from '../services/question.service';
 export class HomePage implements OnInit {
 
   userEmail: string;
-  userName: string;
+  userId: string;
   question: Question[];
 
   constructor(
@@ -27,9 +27,9 @@ export class HomePage implements OnInit {
     this.authService.userDetails().subscribe(res => {
       console.log('res', res);
       if (res !== null) {
-        console.log(res.displayName);
+        console.log(res.uid);
         this.userEmail = res.email;
-        this.userName = res.displayName;
+        this.userId = res.uid;
       } else {
         this.navCtrl.navigateBack('');
       }

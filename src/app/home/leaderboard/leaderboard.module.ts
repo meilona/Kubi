@@ -7,6 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { LeaderboardPageRoutingModule } from './leaderboard-routing.module';
 
 import { LeaderboardPage } from './leaderboard.page';
+import { FooterComponent } from '../component/footer.component';
+
 
 @NgModule({
   imports: [
@@ -15,6 +17,6 @@ import { LeaderboardPage } from './leaderboard.page';
     IonicModule,
     LeaderboardPageRoutingModule
   ],
-  declarations: [LeaderboardPage]
+  declarations: [LeaderboardPage, FooterComponent]
 })
 export class LeaderboardPageModule {}

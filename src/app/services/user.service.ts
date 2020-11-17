@@ -20,4 +20,10 @@ export class UserService {
     console.log(this.userRef);
     return this.userRef;
   }
+
+  getUser(idu: string): AngularFirestoreCollection<User>{
+    this.userRef = this.db.collection<User>(this.dbPath, ref => ref.where("id", '==', idu));
+    console.log(this.userRef);
+    return this.userRef;
+  }
 }

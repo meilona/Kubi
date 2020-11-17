@@ -15,28 +15,28 @@
   <ion-list class="detailUser">
     <ion-item>
       <ion-label position="floating" color="primary">Nama Pengguna</ion-label>
-      <ion-input type="text" [readonly]="true" value="Baim Oliver"></ion-input>
+      <ion-input type="text" [readonly]="true" value="{{ name }}"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="floating" color="primary">Email</ion-label>
-      <ion-input type="text" [readonly]="true" value="baimut@cool.com"></ion-input>
+      <ion-input type="text" [readonly]="true" value="{{ email }}"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="floating" color="primary">Tanggal Lahir</ion-label>
-      <ion-input type="text" [readonly]="true" value="18-07-2001"></ion-input>
+      <ion-input type="text" [readonly]="true" value="{{ birthDate }}"></ion-input>
     </ion-item>
     <ion-grid>
       <ion-row>
         <ion-col>
           <ion-item>
             <ion-label position="floating" color="primary">Total Skor</ion-label>
-            <ion-input type="text" [readonly]="true" value="120xp"></ion-input>
+            <ion-input type="number" [readonly]="true" value="{{totalskor}}"></ion-input>
           </ion-item>
         </ion-col>
         <ion-col>
           <ion-item>
             <ion-label position="floating" color="primary">Liga</ion-label>
-            <ion-input type="text" [readonly]="true" value="Kejuaraan"></ion-input>
+            <ion-input type="text" [readonly]="true" value="{{liga}}"></ion-input>
           </ion-item>
         </ion-col>
       </ion-row>
@@ -45,25 +45,5 @@
 </ion-content>
 
 <ion-footer>
-  <ion-toolbar>
-    <ion-tabs>
-      <ion-tab-bar slot="bottom">
-    
-        <ion-tab-button [routerLink]="['/','home','leaderboard']">
-          <ion-icon name="trophy-outline"></ion-icon>
-          <ion-label>Leaderboard</ion-label> 
-        </ion-tab-button>
-    
-        <ion-tab-button [routerLink]="['/','home']">
-          <ion-icon name="apps-outline"></ion-icon>
-          <ion-label>Menu</ion-label> 
-        </ion-tab-button>
-    
-        <ion-tab-button>
-          <ion-icon name="person-outline"></ion-icon>
-          <ion-label>Profile</ion-label> 
-        </ion-tab-button>
-      </ion-tab-bar>
-    </ion-tabs>
-  </ion-toolbar>
+    <app-footer></app-footer>
 </ion-footer>
