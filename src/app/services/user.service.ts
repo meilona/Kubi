@@ -26,4 +26,15 @@ export class UserService {
     console.log(this.userRef);
     return this.userRef;
   }
+  updateProfile(idu:string, value:any){
+    this.userRef = this.db.collection<User>(this.dbPath, ref => ref.where("id", '==', idu));
+    this.userRef.snapshotChanges().subscribe((res: any) => {
+      let id = res[0].payload.doc.id;
+      console.log("nama :",value.name);
+      console.log("email", value.email);
+      this.db.collection('options').doc(id).update({name:value.name});
+      this.db.collection('options').doc(id).update({email:value.email});
+    });
+    console.log(this.userRef);
+  }
 }

@@ -28,9 +28,10 @@ const routes: Routes = [
     loadChildren: () => import('./beforelogin/beforelogin.module').then( m => m.BeforeloginPageModule)
   },
   {
-    path: ':questionid',
+    path: 'question/:questionid',
     loadChildren: () => import('./home/questions/questions.module').then( m => m.QuestionsPageModule)
   },
+ 
   
 
 

@@ -14,11 +14,11 @@ const routes: Routes = [
     loadChildren: () => import('./leaderboard/leaderboard.module').then( m => m.LeaderboardPageModule)
   },
   {
-    path: ':profileId',
+    path: 'profile/:profileId',
     loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
   },
   {
-    path: ':questionId',
+    path: 'question/:questionId',
     loadChildren: () => import('./questions/questions.module').then( m => m.QuestionsPageModule)
   },
 

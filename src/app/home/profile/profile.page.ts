@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {AuthService} from '../../services/auth.service';
-import { NavController} from '@ionic/angular';
-import { ActivatedRoute, Router } from '@angular/router';
+import { NavController, PopoverController, ActionSheetController} from '@ionic/angular';
+import { ActivatedRoute, Router,NavigationExtras } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { take, map } from 'rxjs/operators';
 import { User } from '../../models/user.model';
@@ -26,6 +26,8 @@ export class ProfilePage implements OnInit {
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private userSrv: UserService,
+    private popoverCtrl : PopoverController,
+    private actionSheetCtrl : ActionSheetController,
     ) { }
 
  
@@ -56,5 +58,31 @@ export class ProfilePage implements OnInit {
       });
     });
 
+  }
+  async openDropdown(){
+    const dropdown = await this.actionSheetCtrl.create({
+      buttons:[{
+        text: 'editProfile',
+        role: 'editProfile',
+        handler: ()=>{
+          console.log("go to editprofile page");
+          let navigationExtra : NavigationExtras ={state:{key:this.key}}
+          console.log("ngirim key", this.key);
+          this.router.navigate(['/home/profile/this.key/editprofile'],navigationExtra);
+        } 
+      },
+      {
+        text: 'setting',
+        role: 'setting',
+        handler: ()=>{
+          this.router.navigate(['/home/profile/this.key/setting']);
+        }
+      }
+    
+      ]
+    });
+    await dropdown.present();
+
+    // let popover = this.popoverCtrl.create(P)
   }
 }

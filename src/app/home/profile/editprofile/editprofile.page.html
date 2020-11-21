@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home/profile"></ion-back-button>
+    </ion-buttons>
+    <ion-title>editprofile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <ion-list>
+      <!-- <ion-item>
+        <ion-label position="floating">ID</ion-label>
+        <ion-input type="number"  ngModel name="id" #idCtrl="ngModel" ></ion-input>
+      </ion-item> -->
+      <ion-item>
+        <ion-label position="floating">Nama Pengguna </ion-label>
+        <ion-input type="text"  ngModel name="name" #nameCtrl="ngModel" required [(ngModel)]="name" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Email </ion-label>
+        <ion-input type="email"  ngModel name="email" #emailCtrl="ngModel" required [(ngModel)]="email" ></ion-input>
+      </ion-item>
+      <!-- <ion-item>
+        <ion-label position="floating">Kata Sandi </ion-label>
+        <ion-input type="text"  ngModel name="password" #nameCtrl="ngModel" required  ></ion-input>
+      </ion-item> -->
+      
+    </ion-list>
+    <ion-button type="submit" color="primary" expand="block" (click)="onFinish()" [disabled]="f.invalid">
+      Simpan
+    </ion-button>
+
+  </form>
+</ion-content>

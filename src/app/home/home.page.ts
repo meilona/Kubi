@@ -51,7 +51,7 @@ export class HomePage implements OnInit {
   }
 
   musik(){
-    this.navCtrl.navigateForward('/questions');
+    this.navCtrl.navigateForward('/question/questions');
     // console.log('to musik question');
   }
 
