@@ -6,6 +6,7 @@ import { UserService } from 'src/app/services/user.service';
 import { take, map } from 'rxjs/operators';
 import { User } from '../../models/user.model';
 import { NgForm } from '@angular/forms';
+import { ComponentComponent } from './component/component.component';
 
 @Component({
   selector: 'app-profile',
@@ -17,7 +18,9 @@ export class ProfilePage implements OnInit {
   key: string;
   name: string; email: string; birthDate: string; totalskor: number;
   liga: string; 
-
+  foto :any;
+  imageUrl : any;
+  selectedData:any = {title:"None Selected",id:0};
   @ViewChild('f', null) f: NgForm;
   
   constructor(
@@ -28,6 +31,7 @@ export class ProfilePage implements OnInit {
     private userSrv: UserService,
     private popoverCtrl : PopoverController,
     private actionSheetCtrl : ActionSheetController,
+    public popoverController: PopoverController,
     ) { }
 
  
@@ -53,36 +57,25 @@ export class ProfilePage implements OnInit {
         this.name = this.User[0].data.name;
         this.email = this.User[0].data.email;
         this.birthDate = this.User[0].data.birthDate;
+        // this.birthDate = this.birthDate.toLocaleDateString('en-GB');
         this.totalskor = this.User[0].data.totalskor;
         this.liga = this.User[0].data.liga;
       });
     });
+    // this.imageUrl = this.userSrv.getPhotoprofile(this.key);
+    // console.log("url",this.imageUrl);
+
 
   }
-  async openDropdown(){
-    const dropdown = await this.actionSheetCtrl.create({
-      buttons:[{
-        text: 'editProfile',
-        role: 'editProfile',
-        handler: ()=>{
-          console.log("go to editprofile page");
-          let navigationExtra : NavigationExtras ={state:{key:this.key}}
-          console.log("ngirim key", this.key);
-          this.router.navigate(['/home/profile/this.key/editprofile'],navigationExtra);
-        } 
-      },
-      {
-        text: 'setting',
-        role: 'setting',
-        handler: ()=>{
-          this.router.navigate(['/home/profile/this.key/setting']);
-        }
-      }
-    
-      ]
+  async presentPopover(ev) {
+    let listData = [{title:"Edit Profile",id:1},{title:"Settings",id:2}]
+    const popover = await this.popoverController.create({
+      component: ComponentComponent,
+      event: ev,
+      translucent: true,
+      componentProps: {key:this.key}
     });
-    await dropdown.present();
-
-    // let popover = this.popoverCtrl.create(P)
+    return await popover.present();
   }
+  
 }

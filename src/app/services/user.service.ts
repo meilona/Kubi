@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase , AngularFireList } from '@angular/fire/database';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import {AngularFireStorage} from '@angular/fire/storage';
 import { User } from '../models/user.model';
+// import {firebase} from 'firebase/app';
 
 @Injectable({
   providedIn: 'root'
@@ -9,11 +11,15 @@ import { User } from '../models/user.model';
 export class UserService {
   private dbPath = 'users';
   userRef: AngularFirestoreCollection<User>; 
+  private storageRef : any;
 
   constructor(
     private db: AngularFirestore,
+    private fireStorage : AngularFireStorage,
   ) 
-  { }
+  {
+    this.storageRef = this.fireStorage.ref('/Users/');
+   }
 
   getAll(): AngularFirestoreCollection<User>{
     this.userRef = this.db.collection<User>(this.dbPath, ref => ref.orderBy('totalskor', 'desc').limit(10));
@@ -27,14 +33,16 @@ export class UserService {
     return this.userRef;
   }
   updateProfile(idu:string, value:any){
-    this.userRef = this.db.collection<User>(this.dbPath, ref => ref.where("id", '==', idu));
-    this.userRef.snapshotChanges().subscribe((res: any) => {
-      let id = res[0].payload.doc.id;
-      console.log("nama :",value.name);
-      console.log("email", value.email);
-      this.db.collection('options').doc(id).update({name:value.name});
-      this.db.collection('options').doc(id).update({email:value.email});
-    });
-    console.log(this.userRef);
+    this.db.doc(this.dbPath+ '/' + idu).update({name:value.name});
+    this.db.doc(this.dbPath+ '/' + idu).update({email:value.email});
   }
+  // getPhotoprofile(id: string){
+  //   console.log("linknya",this.storageRef.child(id).child('JOTI.png').getDownloadURL());
+  //   return this.storageRef.child(id).child('JOTI.png').getDownloadURL();
+  // }
+  // uploadPhotoprofile(id, foto){
+  //   if(foto && foto.length){
+
+  //   }
+  // }
 }

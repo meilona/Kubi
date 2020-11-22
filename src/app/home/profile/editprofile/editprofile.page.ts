@@ -41,11 +41,8 @@ export class EditprofilePage implements OnInit {
     if(form.invalid){
       return;
     }
-    form.value.birthDate = this.birthDate;
-    form.value.totalskor = this.totalskor;
-    form.value.liga = this.liga;
     console.log(form.value);
-    // this.userSrv.updateProfile(this.key, form.value);
+    this.userSrv.updateProfile(this.key, form.value);
   }
   onFinish(){
     this.router.navigate(['/home/profile/',this.key]);

@@ -7,7 +7,15 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content fullscreen="true">
+  <ion-row>
+    <ion-avatar class="image-center item-avatar">
+      <img src="/assets/image/2.jpg"/>
+      
+    </ion-avatar>
+    <p>Edit foto profil</p>
+  </ion-row>
+  
   <form #f="ngForm" (ngSubmit)="onSubmit(f)">
     <ion-list>
       <!-- <ion-item>

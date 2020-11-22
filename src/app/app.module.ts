@@ -13,7 +13,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireDatabaseModule} from '@angular/fire/database';
-
+import {AngularFireStorageModule} from '@angular/fire/storage';
 import {environment} from '../environments/environment';
 
 
@@ -27,7 +27,8 @@ import {environment} from '../environments/environment';
       AngularFireModule.initializeApp(environment.firebase),
       AngularFirestoreModule.enablePersistence(),
       AngularFireAuthModule,
-      AngularFireDatabaseModule],
+      AngularFireDatabaseModule,
+      AngularFireStorageModule],
   providers: [
     StatusBar,
     SplashScreen,
