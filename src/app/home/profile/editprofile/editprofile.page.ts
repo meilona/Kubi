@@ -9,10 +9,12 @@ import {NgForm} from '@angular/forms';
   styleUrls: ['./editprofile.page.scss'],
 })
 export class EditprofilePage implements OnInit {
+  selectedFile: File;
   key: string;
   User :any;
   name: string; email: string; birthDate: string; totalskor: number;liga: string; 
   @ViewChild('f',null) f:NgForm;
+  private fileName: string;
   constructor(private router: Router,
     private userSrv: UserService,) {
     this.key = this.router.getCurrentNavigation().extras.state.key; // should log out 'bar'
@@ -48,4 +50,13 @@ export class EditprofilePage implements OnInit {
     this.router.navigate(['/home/profile/',this.key]);
   }
 
+  onFileChanged(event) {
+    this.selectedFile = event.target.files[0];
+    this.fileName = this.selectedFile.name;
+  }
+
+  onUpload() {
+    console.log(this.fileName + ' is uploaded!');
+    // upload code goes here
+  }
 }

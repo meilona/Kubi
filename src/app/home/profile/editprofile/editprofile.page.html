@@ -14,7 +14,13 @@
       
     </ion-avatar>
     <p>Edit foto profil</p>
+    <input
+            style="display: none"
+            type="file" (change)="onFileChanged($event)"
+            #fileInput>
   </ion-row>
+  <button class="button" (click)="fileInput.click()">Select File</button>
+  <button class="button" (click)="onUpload()">Upload!</button>
   
   <form #f="ngForm" (ngSubmit)="onSubmit(f)">
     <ion-list>
