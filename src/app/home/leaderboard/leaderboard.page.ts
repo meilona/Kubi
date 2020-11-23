@@ -31,7 +31,7 @@ export class LeaderboardPage implements OnInit {
   // );
 
     this.userSrv.getAll().snapshotChanges().pipe(
-      map(changes => 
+      map(changes =>
         changes.map(c => ({data: c.payload.doc.data()}))
         )
     ).subscribe(data => {

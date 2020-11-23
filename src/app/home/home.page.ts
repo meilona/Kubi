@@ -3,6 +3,8 @@ import {AuthService} from '../services/auth.service';
 import {NavController} from '@ionic/angular';
 import {Question} from '../models/question.model';
 import {QuestionService} from '../services/question.service';
+import {map} from 'rxjs/operators';
+import {UserService} from '../services/user.service';
 
 @Component({
   selector: 'app-home',
@@ -11,19 +13,30 @@ import {QuestionService} from '../services/question.service';
 })
 export class HomePage implements OnInit {
 
-  userEmail: string;
-  userId: string;
-  question: Question[];
-
   constructor(
       private navCtrl: NavController,
       private authService: AuthService,
-      private questionService: QuestionService
+      private questionService: QuestionService,
+      private userSrv: UserService,
   ) { }
 
-  ngOnInit() {
-    this.question =this.questionService.getAllQuestion();
+  userEmail: string;
+  userId: string;
+  question: Question[];
+  User: any;
+  name: string; totalskor: number;
 
+  sliderConfig = {
+    spaceBetween: 10,
+    centeredSlides: true,
+    slidesPerView: 1.6,
+    autoplay: 3000
+  };
+
+  ngOnInit() {
+  }
+
+  ionViewWillEnter() {
     this.authService.userDetails().subscribe(res => {
       console.log('res', res);
       if (res !== null) {
@@ -36,18 +49,22 @@ export class HomePage implements OnInit {
     }, err => {
       console.log('err', err);
     });
+    console.log('userId : ', this.userId);
 
-  }
+    this.question = this.questionService.getAllQuestion();
 
-  logout() {
-    this.authService.logoutUser()
-        .then(res => {
-          console.log(res);
-          this.navCtrl.navigateBack('');
-        })
-        .catch(error => {
-          console.log(error);
-        });
+    // untuk ambil data berdasarkan id
+    this.userSrv.getUser(this.userId).snapshotChanges().pipe(
+        map(changes =>
+            changes.map(c => ({data: c.payload.doc.data()}))
+        )
+    ).subscribe(data => {
+      console.log(data);
+      this.User = data;
+      console.log(this.User[0].data.name);
+      this.name = this.User[0].data.name;
+      this.totalskor = this.User[0].data.totalskor;
+    });
   }
 
   musik(){

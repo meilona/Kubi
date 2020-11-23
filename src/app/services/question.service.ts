@@ -22,7 +22,7 @@ export class QuestionService {
     {
       id: 'item1',
       category: 'Musik',
-      image: 'https://i1.wp.com/satujam.com/data/2015/06/indonesian-tradition.blogspot.in_.jpg?fit=900%2C600&ssl=1',
+      image: 'assets/image/kategori_musik.jpg',
       questions: 'pertanyaan 1',
       choices1: 'pilihan 1',
       choices2: 'pilihan 2',
@@ -32,7 +32,7 @@ export class QuestionService {
     {
       id: 'item2',
       category: 'Makanan',
-      image: 'https://cdn.idntimes.com/content-images/post/20181212/kuliner-indonessdsdia-87489b810390089e5d15cb5fbdc66865_600x400.jpg',
+      image: 'assets/image/kategori_makanan.jpg',
       questions: 'pertanyaan 1',
       choices1 : 'pilihan 1',
       choices2 : 'pilihan 2',
@@ -42,7 +42,7 @@ export class QuestionService {
     {
       id: 'item3',
       category: 'Tempat',
-      image: 'https://cdn.idntimes.com/content-images/community/2019/02/2018-02-01-39875-1517462499-large-60d97e6631e637497c2db252b926af17_600x400.jpg',
+      image: 'assets/image/kategori_tempat.jpg',
       questions: 'pertanyaan 1',
       choices1 : 'pilihan 1',
       choices2 : 'pilihan 2',

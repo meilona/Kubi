@@ -78,6 +78,7 @@ export class AuthService {
   }
 
   userDetails() {
+    // console.log('afAuth.user : ' + this.afAuth);
     return this.afAuth.user;
   }
 
