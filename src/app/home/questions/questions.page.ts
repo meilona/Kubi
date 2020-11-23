@@ -41,6 +41,7 @@ export class QuestionsPage implements OnInit {
   private question: HTMLElement;
   private choices: Element[];
 
+
   constructor(
       private activatedRoute: ActivatedRoute,
       private questionService: QuestionService,
@@ -55,6 +56,7 @@ export class QuestionsPage implements OnInit {
         )
     ).subscribe(data => {
       this.questions = [ ];
+      //this.choices = [ ];
       this.tempQuestion = data;
 
       for (this.i = 0; this.i < this.tempQuestion.length ; this.i++) {
@@ -72,8 +74,10 @@ export class QuestionsPage implements OnInit {
           materi: this.loadedQuestion.materi
         };
         this.questions.push(quest);
+        //this.choices.push(quest.choice1);
       }
       console.log(this.questions);
+      console.log(this.choices);
       this.startGame();
     });
   }
