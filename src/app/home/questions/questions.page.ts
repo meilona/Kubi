@@ -97,17 +97,17 @@ export class QuestionsPage implements OnInit {
 
   getNewQuestion = () => {
     if (this.availableQuesions.length === 0 || this.questionCounter >= this.maxQuestions) {
-      return this.navCtrl.navigateForward('/home');
+      return this.navCtrl.navigateForward('/home/finish-question');
     }
     this.questionCounter++;
     const questionIndex = Math.floor(Math.random() * this.availableQuesions.length);
     this.currentQuestion = this.availableQuesions[questionIndex];
 
-    this.question.innerText = 'Pertanyaan : ' + this.currentQuestion.question;
+    this.question.innerText = this.currentQuestion.question;
 
     this.choices.forEach((choice) => {
-      // const num = choice.dataset.number;
-      // choice.innerHTML = this.currentQuestion['choice' + num];
+      const num = choice.dataset.number;
+      choice.innerHTML = this.currentQuestion['choice' + num];
     });
 
     this.availableQuesions.splice(questionIndex, 1);
@@ -124,6 +124,8 @@ export class QuestionsPage implements OnInit {
     } else {
       this.rightAnswers = true;
       console.log('benar');
+      this.score += this.rightScore;
+      console.log('score : ' + this.score);
     }
     this.getNewQuestion();
     this.rightAnswers = false;
