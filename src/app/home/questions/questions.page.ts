@@ -106,8 +106,8 @@ export class QuestionsPage implements OnInit {
     this.question.innerText = this.currentQuestion.question;
 
     this.choices.forEach((choice) => {
-      const num = choice.dataset.number;
-      choice.innerHTML = this.currentQuestion['choice' + num];
+      // const num = choice.dataset.number;
+      // choice.innerHTML = this.currentQuestion['choice' + num];
     });
 
     this.availableQuesions.splice(questionIndex, 1);

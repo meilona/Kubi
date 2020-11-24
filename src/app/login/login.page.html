@@ -1,10 +1,12 @@
-<ion-header>
-  <ion-toolbar color="primary">
-    <ion-title>Login</ion-title>
-  </ion-toolbar>
-</ion-header>
+<!--<ion-header>-->
+<!--  <ion-toolbar color="primary">-->
+<!--    <ion-title>Login</ion-title>-->
+<!--  </ion-toolbar>-->
+<!--</ion-header>-->
 
 <ion-content class="ion-padding">
+  <ion-img src="assets/image/kubi_logo.png"></ion-img>
+  <h1 style="color: white">Masuk</h1>
   <form class="form" [formGroup]="validationForm" (ngSubmit)="loginUser(validationForm.value)">
 
     <ion-item>
@@ -33,15 +35,17 @@
       </ng-container>
     </div>
 
-    <ion-button class="submit-btn" type="submit" [disabled]="!validationForm.valid">Log In</ion-button>
+    <ion-button slot="end" type="submit" [disabled]="!validationForm.valid">Masuk
+      <ion-icon name="chevron-forward-outline" ></ion-icon>
+    </ion-button>
     <br>
     <ion-text class="error-message" text-center>{{errorMessage}}</ion-text>
   </form>
   <p>
-    <ion-text class="block bold" routerLink="/forgot">Forgot Password</ion-text>
+    <ion-text class="block bold" routerLink="/forgot">Lupa Password</ion-text>
   </p>
   <p>
-    No account yet? <a (click)="goToRegisterPage()">Create an account.</a>
+    Belum memiliki akun? <a (click)="goToRegisterPage()" style="color: red">Daftar disini.</a>
   </p>
 
 </ion-content>
