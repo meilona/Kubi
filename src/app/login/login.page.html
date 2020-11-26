@@ -15,7 +15,7 @@
     </ion-item>
     <div class="validation-errors">
       <ng-container *ngFor="let validation of validationMessages.email">
-        <div class="error-message"
+        <div class="error-message" style="color: red;"
              *ngIf="validationForm.get('email').hasError(validation.type) && (validationForm.get('email').dirty || validationForm.get('email').touched)">
           {{ validation.message }}
         </div>
@@ -28,7 +28,7 @@
     </ion-item>
     <div class="validation-errors">
       <ng-container *ngFor="let validation of validationMessages.password">
-        <div class="error-message"
+        <div class="error-message" style="color: red;"
              *ngIf="validationForm.get('password').hasError(validation.type) && (validationForm.get('password').dirty || validationForm.get('password').touched)">
           {{ validation.message }}
         </div>
@@ -44,7 +44,7 @@
     </div>
 
     <br>
-    <ion-text class="error-message" text-center>{{errorMessage}}</ion-text>
+    <ion-text class="error-message" style="color: red;" text-center>{{errorMessage}}</ion-text>
   </form>
   <p>
     <ion-text class="block bold" routerLink="/forgot">Lupa Password</ion-text>

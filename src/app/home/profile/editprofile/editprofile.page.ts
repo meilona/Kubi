@@ -3,16 +3,19 @@ import {Router} from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { take, map } from 'rxjs/operators';
 import {NgForm} from '@angular/forms';
+
 @Component({
   selector: 'app-editprofile',
   templateUrl: './editprofile.page.html',
   styleUrls: ['./editprofile.page.scss'],
 })
+
 export class EditprofilePage implements OnInit {
   selectedFile: File;
   key: string;
   User :any;
   name: string; email: string; birthDate: string; totalskor: number;liga: string; 
+
   @ViewChild('f',null) f:NgForm;
   private fileName: string;
   constructor(private router: Router,
@@ -37,6 +40,7 @@ export class EditprofilePage implements OnInit {
       this.liga = this.User[0].data.liga;
     });
   }
+
   onSubmit(form : NgForm){
     console.log('onSubmit');
     console.log(form);
@@ -46,6 +50,7 @@ export class EditprofilePage implements OnInit {
     console.log(form.value);
     this.userSrv.updateProfile(this.key, form.value);
   }
+
   onFinish(){
     this.router.navigate(['/home/profile/',this.key]);
   }

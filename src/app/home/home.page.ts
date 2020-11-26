@@ -75,4 +75,8 @@ export class HomePage implements OnInit {
     // console.log('to musik question');
   }
 
+  pindahprofile(){
+    this.navCtrl.navigateForward('/home/profile/' + this.userId);
+  }
+
 }

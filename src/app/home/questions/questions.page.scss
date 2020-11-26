@@ -35,3 +35,8 @@
   color: #0d0d0d;
   line-height: 0px;
 }
+
+//remove bottom shadow android
+.header-md::after {
+  display: none;
+}

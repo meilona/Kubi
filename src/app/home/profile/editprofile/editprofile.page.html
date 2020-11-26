@@ -8,12 +8,13 @@
 </ion-header>
 
 <ion-content fullscreen="true">
+     
+  <ion-avatar class="image-center item-avatar">
+    <img src="/assets/image/2.jpg"/>
+  </ion-avatar>
+
   <ion-row>
-    <ion-avatar class="image-center item-avatar">
-      <img src="/assets/image/2.jpg"/>
-      
-    </ion-avatar>
-    <p>Edit foto profil</p>
+    <ion-col size="4"></ion-col>
     <input
             style="display: none"
             type="file" (change)="onFileChanged($event)"
@@ -22,29 +23,27 @@
   <button class="button" (click)="fileInput.click()">Select File</button>
   <button class="button" (click)="onUpload()">Upload!</button>
   
-  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
-    <ion-list>
-      <!-- <ion-item>
-        <ion-label position="floating">ID</ion-label>
-        <ion-input type="number"  ngModel name="id" #idCtrl="ngModel" ></ion-input>
-      </ion-item> -->
-      <ion-item>
-        <ion-label position="floating">Nama Pengguna </ion-label>
-        <ion-input type="text"  ngModel name="name" #nameCtrl="ngModel" required [(ngModel)]="name" ></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="floating">Email </ion-label>
-        <ion-input type="email"  ngModel name="email" #emailCtrl="ngModel" required [(ngModel)]="email" ></ion-input>
-      </ion-item>
-      <!-- <ion-item>
-        <ion-label position="floating">Kata Sandi </ion-label>
-        <ion-input type="text"  ngModel name="password" #nameCtrl="ngModel" required  ></ion-input>
-      </ion-item> -->
-      
-    </ion-list>
-    <ion-button type="submit" color="primary" expand="block" (click)="onFinish()" [disabled]="f.invalid">
-      Simpan
-    </ion-button>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+          <ion-list>
+            <ion-item>
+              <ion-label position="floating">Nama Pengguna </ion-label>
+              <ion-input type="text"  ngModel name="name" #nameCtrl="ngModel" required [(ngModel)]="name" ></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Email </ion-label>
+              <ion-input type="email"  ngModel name="email" #emailCtrl="ngModel" required [(ngModel)]="email" ></ion-input>
+            </ion-item>
+            
+          </ion-list>
+          <ion-button type="submit" color="primary" expand="block" (click)="onFinish()" [disabled]="f.invalid">
+            Simpan
+          </ion-button>
+        </form> 
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
-  </form>
 </ion-content>

@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-title slot="start">Hai, {{name}}</ion-title>
-    <ion-avatar slot="end" style="margin-right: 20px; margin-top: 5px; margin-bottom: 5px" >
+    <ion-avatar slot="end" style="margin-right: 20px; margin-top: 5px; margin-bottom: 5px" (click)="pindahprofile()">
       <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/98/John_Wick_TeaserPoster.jpg/220px-John_Wick_TeaserPoster.jpg">
     </ion-avatar>
   </ion-toolbar>
@@ -17,7 +17,7 @@
             <ion-card-title style="text-align: center;">TOTAL SKOR</ion-card-title>
           </ion-card-header>
           <ion-card-content style="align-items: center;">
-            <h2 class="p-3 mb-2" style="background-color:#FEBF63; text-align: center; font-size: 30px; color: white;border-radius: 10px;"> {{totalskor}} Xp</h2>
+            <h2 class="p-3 mb-2" style="background-color:#FEBF63; text-align: center; font-size: 30px; color: white;border-radius: 10px;"> {{totalskor}} XP</h2>
           </ion-card-content>
         </ion-card>
 
