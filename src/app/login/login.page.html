@@ -35,9 +35,14 @@
       </ng-container>
     </div>
 
-    <ion-button slot="end" type="submit" [disabled]="!validationForm.valid">Masuk
-      <ion-icon name="chevron-forward-outline" ></ion-icon>
-    </ion-button>
+    <div class="p-3 mb-2">
+      <div class="text-center">
+        <ion-button style="align-content: center;" slot="end" type="submit" [disabled]="!validationForm.valid">Masuk
+          <ion-icon name="chevron-forward-outline" ></ion-icon>
+        </ion-button>
+      </div>
+    </div>
+
     <br>
     <ion-text class="error-message" text-center>{{errorMessage}}</ion-text>
   </form>

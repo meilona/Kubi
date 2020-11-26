@@ -15,6 +15,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireDatabaseModule} from '@angular/fire/database';
 import {AngularFireStorageModule} from '@angular/fire/storage';
 import {environment} from '../environments/environment';
+import { HomePageModule } from './home/home.module';
 
 
 @NgModule({
@@ -28,7 +29,9 @@ import {environment} from '../environments/environment';
       AngularFirestoreModule.enablePersistence(),
       AngularFireAuthModule,
       AngularFireDatabaseModule,
-      AngularFireStorageModule],
+      AngularFireStorageModule,
+      HomePageModule,
+    ],
   providers: [
     StatusBar,
     SplashScreen,

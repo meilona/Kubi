@@ -1,6 +1,5 @@
 <ion-header>
   <ion-toolbar>
-    <!--    <ion-title>question!</ion-title>-->
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/home"></ion-back-button>
     </ion-buttons>
@@ -11,24 +10,29 @@
 <ion-content>
     <div class="container">
       <div class="ion-justify-content-center">
-        <img src="assets/image/kategori_makanan.jpg" style="opacity: 40%">
+        <img src="assets/image/question.png">
         <h2 id="question">Pertanyaan: Lagu Cublak Cublak Suweng Berasal dari Daerah</h2>
+        <br><br>
         <div class="choice-container">
           <p class="choice-prefix">A</p>
           <p class="choice-text" data-number="1" (click)="selectedAnswer($event)">Jawa Barat</p>
         </div>
+        <br>
         <div class="choice-container">
           <p class="choice-prefix">B</p>
           <p class="choice-text" data-number="2" (click)="selectedAnswer($event)">Jawa Timur</p>
         </div>
+        <br>
         <div class="choice-container">
           <p class="choice-prefix">C</p>
           <p class="choice-text" data-number="3" (click)="selectedAnswer($event)">Jawa Tengah</p>
         </div>
+        <br>
         <div class="choice-container">
           <p class="choice-prefix">D</p>
           <p class="choice-text" data-number="4" (click)="selectedAnswer($event)">Bandung</p>
         </div>
+        <br>
       </div>
     </div>
 </ion-content>

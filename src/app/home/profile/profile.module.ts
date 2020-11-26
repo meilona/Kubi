@@ -16,6 +16,6 @@ import { FooterComponent } from '../component/footer.component';
     IonicModule,
     ProfilePageRoutingModule
   ],
-  declarations: [ProfilePage, FooterComponent]
+  declarations: [ProfilePage]
 })
 export class ProfilePageModule {}

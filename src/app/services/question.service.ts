@@ -22,7 +22,7 @@ export class QuestionService {
     {
       id: 'item1',
       category: 'Musik',
-      image: 'assets/image/kategori_musik.jpg',
+      image: 'assets/image/Kategori_Musik.png',
       questions: 'pertanyaan 1',
       choices1: 'pilihan 1',
       choices2: 'pilihan 2',
@@ -32,7 +32,7 @@ export class QuestionService {
     {
       id: 'item2',
       category: 'Makanan',
-      image: 'assets/image/kategori_makanan.jpg',
+      image: 'assets/image/Kategori_Makanan.png',
       questions: 'pertanyaan 1',
       choices1 : 'pilihan 1',
       choices2 : 'pilihan 2',
@@ -42,7 +42,7 @@ export class QuestionService {
     {
       id: 'item3',
       category: 'Tempat',
-      image: 'assets/image/kategori_tempat.jpg',
+      image: 'assets/image/Kategori_Tempat.png',
       questions: 'pertanyaan 1',
       choices1 : 'pilihan 1',
       choices2 : 'pilihan 2',

@@ -7,18 +7,17 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content class="ion-padding background">
 
   <ion-grid>
     <ion-row>
       <ion-col text-center>
-        <ion-card style=" border: 1px solid #FEBF63; border-radius: 10px;">
+        <ion-card style="border: 1px solid #FEBF63; border-radius: 10px; height: 100%;">
           <ion-card-header>
             <ion-card-title style="text-align: center;">TOTAL SKOR</ion-card-title>
           </ion-card-header>
           <ion-card-content style="align-items: center;">
-            <h2 style="background-color:#FEBF63; text-align: center; font-size: 30px; color: white;border-radius: 10px;"> {{totalskor}} Xp</h2>
-<!--            <h1 style="padding-top: 20px; text-align: center;">Poin</h1>-->
+            <h2 class="p-3 mb-2" style="background-color:#FEBF63; text-align: center; font-size: 30px; color: white;border-radius: 10px;"> {{totalskor}} Xp</h2>
           </ion-card-content>
         </ion-card>
 
@@ -26,34 +25,36 @@
     </ion-row>
     <ion-row>
       <ion-col>
-        <ion-label style="font-size: larger; position: center" class="ion-text-center" >Ayo Belajar Budaya Indonesia!</ion-label>
-        <br><br>
-        <ion-label style="margin-left: auto; font-size: large" class="ion-text-center">Pilih Kategori!</ion-label>
+        <div class="text-center" style="padding-top: 15px;">
+          <ion-label style="font-size: larger; position: center;" class="ion-text-center" >Ayo Belajar Budaya Indonesia!</ion-label>
+          <br>
+          <ion-label style="margin-left: auto; font-size: large" class="ion-text-center">Pilih Kategori!</ion-label>
+        </div>
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col>
-        <ion-slides pager="true" [options]="sliderConfig">
-          <ion-slide *ngFor="let question of question">
-            <ion-card class="card-background-page">
-              <ion-img class="full-image" [src]='question.image' style="opacity: 50%"></ion-img>
-              <ion-text class="card-title">{{question.category}}</ion-text>
-              <ion-button color="warning" style="--ion-text-color: white" class="card-subtitle" (click)="musik()">Mulai</ion-button>
-<!--              <ion-card-header>-->
-<!--                <ion-img class="image" [src]="question.image"></ion-img>-->
-<!--                <ion-card-title class="title">{{question.category}}</ion-card-title>-->
-<!--              </ion-card-header>-->
-<!--              <ion-card-content>-->
-<!--                <ion-label>ditambahin kata2 aja biar cardnya kebawah ya kali gak apasih aduh pusing ditambahin apa apa apapapapapa</ion-label>-->
-<!--                <br><br>-->
-<!--                <ion-button class="submit-btn primary" (click)="musik()">Mulai</ion-button>-->
-<!--              </ion-card-content>-->
-            </ion-card>
-          </ion-slide>
-        </ion-slides>
+      <ion-col> 
       </ion-col>
     </ion-row>
   </ion-grid>
+  <div class="Container mh-100">
+    <div class="mh-100">
+      <ion-slides pager="true" [options]="sliderConfig">
+      <ion-slide *ngFor="let question of question">
+          <ion-card class="card-background-page" style="height: max-content; background-color: #8CCFFF;">
+            <img [src]="question.image"/>
+            <!-- <img style="width: 85%;" src="https://upload.wikimedia.org/wikipedia/en/thumb/9/98/John_Wick_TeaserPoster.jpg/220px-John_Wick_TeaserPoster.jpg"> -->
+            <div class="text-center" style="padding-bottom: 10px">
+              <ion-text class="card-title">{{question.category}}</ion-text>
+            </div>
+            <ion-card-content>
+              <ion-button class="submit-btn primary" style="--ion-text-color: white;" (click)="musik()">Mulai</ion-button>
+            </ion-card-content>
+          </ion-card>
+        </ion-slide>
+        </ion-slides>
+    </div>
+  </div>
 </ion-content>
 
 <ion-footer>

@@ -1,36 +1,51 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/home/profile"></ion-back-button>
+      <ion-back-button defaultHref="/home"></ion-back-button>
     </ion-buttons>
-    <ion-title>setting</ion-title>
+    <ion-title>Pengaturan</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-card>
-    <ion-item>
-      <p>Suara</p>
-      <ion-toggle slot="end" name="suara" ></ion-toggle>
-    </ion-item>
-    <ion-item>
-      <p>Mode</p>
-      <ion-toggle slot="end" name="mode" ></ion-toggle>
-    </ion-item>
-    <ion-item>
-      <p>Notifikasi</p>
-      <ion-toggle slot="end" name="notifikasi" ></ion-toggle>
-    </ion-item>
-  </ion-card>
-
-  <ion-button expand="block">
-    <h2>Kebijakan Privasi</h2>
-  </ion-button>
-  <ion-button expand="block">
-    <h2>Pusat Bantuan</h2>
-  </ion-button>
-  <ion-button expand="block">
-    Keluar
-  </ion-button>
-
+  <ion-grid>
+    <ion-row>
+      <ion-col style="text-align: center; padding-top: 2em;">
+        <h1>PENGATURAN</h1>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <ion-item>
+            <p style="padding-top: 20px;">Suara</p>
+            <ion-toggle slot="end" name="suara" ></ion-toggle>
+          </ion-item>
+          <ion-item>
+            <p style="padding-top: 20px;">Mode</p>
+            <ion-toggle slot="end" name="mode" ></ion-toggle>
+          </ion-item>
+          <ion-item>
+            <p style="padding-top: 20px;">Notifikasi</p>
+            <ion-toggle slot="end" name="notifikasi" ></ion-toggle>
+          </ion-item>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col style="text-align: center;">
+        <ion-button style="width: 50%;">Kebijakan Privasi</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col style="text-align: center;">
+        <ion-button style="width: 50%;">Pusat Bantuan</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col style="text-align: center;">
+        <ion-button style="width: 50%;">Keluar</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

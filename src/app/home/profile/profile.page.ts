@@ -18,7 +18,7 @@ export class ProfilePage implements OnInit {
   key: string;
   name: string; email: string; birthDate: string; totalskor: number;
   liga: string; 
-  foto :any;
+  foto :any; id: string;
   imageUrl : any;
   selectedData:any = {title:"None Selected",id:0};
   @ViewChild('f', null) f: NgForm;
@@ -34,9 +34,11 @@ export class ProfilePage implements OnInit {
     public popoverController: PopoverController,
     ) { }
 
- 
+  ngOnInit(){
 
-  ngOnInit() {
+  }
+
+  ionViewDidEnter() {
     // untuk dapetin id nya
     this.activatedRoute.paramMap.subscribe(paramMap => {
       if(!paramMap.has('profileId')) { return; }
@@ -53,7 +55,9 @@ export class ProfilePage implements OnInit {
       ).subscribe(data => {
         console.log(data);
         this.User = data;
-        console.log(this.User[0].data.name);
+        // console.log(this.User[0].data.name);
+        this.id = this.User[0].data.id;
+        console.log(this.id);
         this.name = this.User[0].data.name;
         this.email = this.User[0].data.email;
         this.birthDate = this.User[0].data.birthDate;

@@ -31,6 +31,7 @@ const routes: Routes = [
     path: 'question/:questionid',
     loadChildren: () => import('./home/questions/questions.module').then( m => m.QuestionsPageModule)
   },
+
   // {
   //   path: 'profile',
   //   loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)

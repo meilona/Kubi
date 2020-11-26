@@ -16,6 +16,7 @@ import { FooterComponent } from './component/footer.component';
     IonicModule,
     HomePageRoutingModule
   ],
-  declarations: [HomePage, FooterComponent]
+  declarations: [HomePage, FooterComponent],
+  exports: [FooterComponent]
 })
 export class HomePageModule {}

@@ -43,28 +43,31 @@ export class HomePage implements OnInit {
         console.log(res.uid);
         this.userEmail = res.email;
         this.userId = res.uid;
+
+      // untuk ambil data berdasarkan id
+      this.userSrv.getUser(this.userId).snapshotChanges().pipe(
+        map(changes =>
+            changes.map(c => ({data: c.payload.doc.data()}))
+        )
+        ).subscribe(data => {
+          console.log(data);
+          this.User = data;
+          console.log(this.User[0].data.name);
+          this.name = this.User[0].data.name;
+          console.log(this.name);
+          this.totalskor = this.User[0].data.totalskor;
+        });
       } else {
         this.navCtrl.navigateBack('');
       }
     }, err => {
       console.log('err', err);
     });
-    console.log('userId : ', this.userId);
-
+    // console.log('userId : ', this.userId);
+    console.log(this.question);
     this.question = this.questionService.getAllQuestion();
 
-    // untuk ambil data berdasarkan id
-    this.userSrv.getUser(this.userId).snapshotChanges().pipe(
-        map(changes =>
-            changes.map(c => ({data: c.payload.doc.data()}))
-        )
-    ).subscribe(data => {
-      console.log(data);
-      this.User = data;
-      console.log(this.User[0].data.name);
-      this.name = this.User[0].data.name;
-      this.totalskor = this.User[0].data.totalskor;
-    });
+    
   }
 
   musik(){
