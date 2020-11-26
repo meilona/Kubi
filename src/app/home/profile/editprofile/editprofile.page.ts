@@ -11,11 +11,12 @@ import {NgForm} from '@angular/forms';
 })
 
 export class EditprofilePage implements OnInit {
-  selectedFile: File;
+  // selectedFile: File;
   key: string;
   User :any;
   name: string; email: string; birthDate: string; totalskor: number;liga: string; 
-
+  selectedFile: any;
+  imageUrl: any;
   @ViewChild('f',null) f:NgForm;
   private fileName: string;
   constructor(private router: Router,
@@ -24,6 +25,9 @@ export class EditprofilePage implements OnInit {
   }
   
   ngOnInit() {
+    
+  }
+  ionViewWillEnter(){
     console.log("ini key", this.key);
     this.userSrv.getUser(this.key).snapshotChanges().pipe(
       map(changes => 
@@ -38,6 +42,12 @@ export class EditprofilePage implements OnInit {
       this.birthDate = this.User[0].data.birthDate;
       this.totalskor = this.User[0].data.totalskor;
       this.liga = this.User[0].data.liga;
+      if(this.User[0].data.storageRef!==null){
+        this.imageUrl = this.User[0].data.storageRef;
+      }
+      else{
+        this.imageUrl = 'assets/image/Kategori_Musik.png';
+      }
     });
   }
 
@@ -50,18 +60,23 @@ export class EditprofilePage implements OnInit {
     console.log(form.value);
     this.userSrv.updateProfile(this.key, form.value);
   }
-
+  chooseFile (event) {
+    this.selectedFile = event.target.files
+  }
   onFinish(){
     this.router.navigate(['/home/profile/',this.key]);
   }
 
   onFileChanged(event) {
     this.selectedFile = event.target.files[0];
-    this.fileName = this.selectedFile.name;
+    this.fileName = this.selectedFile;
+    console.log("file name:",this.fileName);
   }
 
   onUpload() {
     console.log(this.fileName + ' is uploaded!');
+    this.userSrv.uploadPhotoprofile(this.key, this.fileName);
+    // this.imageUrl = this.userSrv.getPhotoprofile(this.key);
     // upload code goes here
   }
 }

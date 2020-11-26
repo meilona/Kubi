@@ -64,10 +64,16 @@ export class ProfilePage implements OnInit {
         // this.birthDate = this.birthDate.toLocaleDateString('en-GB');
         this.totalskor = this.User[0].data.totalskor;
         this.liga = this.User[0].data.liga;
+        if(this.User[0].data.storageRef!==null){
+          this.imageUrl = this.User[0].data.storageRef;
+        }
+        else{
+          this.imageUrl = 'assets/image/Kategori_Musik.png';
+        }
       });
     });
     // this.imageUrl = this.userSrv.getPhotoprofile(this.key);
-    // console.log("url",this.imageUrl);
+    console.log("url",this.imageUrl);
 
 
   }

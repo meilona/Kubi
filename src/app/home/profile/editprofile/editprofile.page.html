@@ -10,7 +10,7 @@
 <ion-content fullscreen="true">
      
   <ion-avatar class="image-center item-avatar">
-    <img src="/assets/image/2.jpg"/>
+    <img src="{{imageUrl}}"/>
   </ion-avatar>
 
   <ion-row>
@@ -19,6 +19,7 @@
             style="display: none"
             type="file" (change)="onFileChanged($event)"
             #fileInput>
+    <!-- <input type="file" name="inputFile" (change)="chooseFile($event)"> -->
   </ion-row>
   <button class="button" (click)="fileInput.click()">Select File</button>
   <button class="button" (click)="onUpload()">Upload!</button>

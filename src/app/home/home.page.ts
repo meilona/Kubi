@@ -25,7 +25,7 @@ export class HomePage implements OnInit {
   question: Question[];
   User: any;
   name: string; totalskor: number;
-
+  imageUrl:any;
   sliderConfig = {
     spaceBetween: 10,
     centeredSlides: true,
@@ -56,6 +56,12 @@ export class HomePage implements OnInit {
           this.name = this.User[0].data.name;
           console.log(this.name);
           this.totalskor = this.User[0].data.totalskor;
+          if(this.User[0].data.storageRef!==null){
+            this.imageUrl = this.User[0].data.storageRef;
+          }
+          else{
+            this.imageUrl = 'assets/image/Kategori_Musik.png';
+          }
         });
       } else {
         this.navCtrl.navigateBack('');
