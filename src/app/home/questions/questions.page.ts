@@ -115,7 +115,9 @@ export class QuestionsPage implements OnInit {
   }
 
   selectedAnswer(e){
-    const selectedChoice = e.target.innerText;
+    // const selectedChoice = e.target.innerText;
+    const selectedChoice = document.getElementsByClassName('choice-container')[e].lastChild.textContent;
+    console.log(selectedChoice);
     const selectedAnswer = this.currentQuestion.answer;
     console.log(selectedAnswer + ' banding ' + selectedChoice);
     if (selectedAnswer !== selectedChoice){

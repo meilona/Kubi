@@ -13,24 +13,24 @@
         <img src="assets/image/question.png">
         <h2 id="question">Pertanyaan: Lagu Cublak Cublak Suweng Berasal dari Daerah</h2>
         <br><br>
-        <div class="choice-container">
-          <p class="choice-prefix">A</p>
-          <p class="choice-text" id="choices"  (click)="selectedAnswer($event)">Jawa Barat</p>
+        <div class="choice-container" (click)="selectedAnswer(0)">
+<!--          <p class="choice-prefix">A</p>-->
+          <p class="choice-text" id="choices">Jawa Barat</p>
         </div>
         <br>
-        <div class="choice-container">
-          <p class="choice-prefix">B</p>
-          <p class="choice-text" data-number="2" (click)="selectedAnswer($event)">Jawa Timur</p>
+        <div class="choice-container" (click)="selectedAnswer(1)">
+<!--          <p class="choice-prefix">B</p>-->
+          <p class="choice-text" data-number="2">Jawa Timur</p>
         </div>
         <br>
-        <div class="choice-container">
-          <p class="choice-prefix">C</p>
-          <p class="choice-text" data-number="3" (click)="selectedAnswer($event)">Jawa Tengah</p>
+        <div class="choice-container" (click)="selectedAnswer(2)">
+<!--          <p class="choice-prefix">C</p>-->
+          <p class="choice-text" data-number="3">Jawa Tengah</p>
         </div>
         <br>
-        <div class="choice-container">
-          <p class="choice-prefix">D</p>
-          <p class="choice-text" data-number="4" (click)="selectedAnswer($event)">Bandung</p>
+        <div class="choice-container" (click)="selectedAnswer(3)">
+<!--          <p class="choice-prefix">D</p>-->
+          <p class="choice-text" data-number="4">Bandung</p>
         </div>
         <br>
       </div>
