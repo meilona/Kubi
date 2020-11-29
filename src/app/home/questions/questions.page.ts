@@ -49,6 +49,8 @@ export class QuestionsPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.question = document.getElementById('question');
+    this.choices = Array.from(document.getElementsByClassName('choice-text'));
     // get questions from firebase
     this.questionService.getQuest().snapshotChanges().pipe(
         map(changes =>
@@ -83,8 +85,8 @@ export class QuestionsPage implements OnInit {
   }
 
   ionViewWillEnter() {
-    this.question = document.getElementById('question');
-    this.choices = Array.from(document.getElementsByClassName('choice-text'));
+    // this.question = document.getElementById('question');
+    // this.choices = Array.from(document.getElementsByClassName('choice-text'));
   }
 
   startGame = () => {
