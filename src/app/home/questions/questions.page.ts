@@ -3,8 +3,9 @@ import {Question} from '../../models/question.model';
 import {ActivatedRoute, Router} from '@angular/router';
 import {QuestionService} from '../../services/question.service';
 import {map} from 'rxjs/operators';
-import {NavController} from '@ionic/angular';
+import {NavController, PopoverController} from '@ionic/angular';
 import {stringify} from 'querystring';
+import { PopoverComponent } from '../component/popover/popover.component';
 
 // interface Questions {
 //   // id: string;
@@ -25,6 +26,8 @@ import {stringify} from 'querystring';
 export class QuestionsPage implements OnInit {
   userId: any;
   totalScore: any;
+  kategori: any; 
+  materi: any; 
 
   // CONSTANTS
   rightScore = 10;
@@ -51,17 +54,22 @@ export class QuestionsPage implements OnInit {
       private questionService: QuestionService,
       private navCtrl: NavController,
       private router: Router,
+      private pop: PopoverController,
   ) { }
 
   ngOnInit() {
     this.userId = this.router.getCurrentNavigation().extras.state.userId;
     this.totalScore = this.router.getCurrentNavigation().extras.state.totalScore;
+    this.kategori = this.router.getCurrentNavigation().extras.state.kategori;
+    console.log("Kategori : " + this.kategori);
     console.log('uId: ' + this.userId);
     console.log('totalskor: ' + this.totalScore);
     this.question = document.getElementById('question');
     this.choices = Array.from(document.getElementsByClassName('choice-text'));
-    // get questions from firebase
-    this.questionService.getQuest().snapshotChanges().pipe(
+    //get kategori from 
+    
+    // get questions from firebase based on kategori
+    this.questionService.getQuest(this.kategori).snapshotChanges().pipe(
         map(changes =>
             changes.map(c => ({data: c.payload.doc.data()}))
         )
@@ -84,6 +92,10 @@ export class QuestionsPage implements OnInit {
           hint: this.loadedQuestion.hint,
           materi: this.loadedQuestion.materi
         };
+        // buat nampung materi 
+        this.materi = quest.materi; 
+        console.log("kategori question: " + quest.kategori);
+        console.log("question : " + quest.question);
         this.questions.push(quest);
         // this.choices.push(quest.choice1);
       }
@@ -127,6 +139,18 @@ export class QuestionsPage implements OnInit {
     // this.rightAnswers = true;
   }
 
+  async presentPopover() {
+    console.log("materi: " + this.materi);
+    const popover = await this.pop.create({
+      component: PopoverComponent,
+      // cssClass: 'my-custom-class',
+      backdropDismiss: true,
+      translucent: true,
+      componentProps: {key: this.materi}
+    });
+    return await popover.present();
+  }
+
   selectedAnswer(e){
     // const selectedChoice = e.target.innerText;
     const selectedChoice = document.getElementsByClassName('choice-container')[e].lastChild.textContent;
@@ -135,6 +159,8 @@ export class QuestionsPage implements OnInit {
     console.log(selectedAnswer + ' banding ' + selectedChoice);
     if (selectedAnswer !== selectedChoice){
       console.log('salah');
+      // panggil pop over
+      this.presentPopover();
       this.rightAnswers = false;
     } else {
       this.rightAnswers = true;
@@ -145,4 +171,6 @@ export class QuestionsPage implements OnInit {
     this.getNewQuestion();
     this.rightAnswers = false;
   }
+
+  
 }
