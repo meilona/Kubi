@@ -36,9 +36,14 @@ export class UserService {
     console.log(this.userRef);
     return this.userRef;
   }
-  updateProfile(idu:string, value:any){
-    this.db.doc(this.dbPath+ '/' + idu).update({name:value.name});
-    this.db.doc(this.dbPath+ '/' + idu).update({email:value.email});
+
+  updateProfile(idu: string, value: any){
+    this.db.doc(this.dbPath + '/' + idu).update({name: value.name});
+    this.db.doc(this.dbPath + '/' + idu).update({email: value.email});
+  }
+
+  updateScore(idu: string, score: any){
+    this.db.doc(this.dbPath + '/' + idu).update({totalskor: score});
   }
 
 

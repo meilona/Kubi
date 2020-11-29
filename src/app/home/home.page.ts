@@ -5,6 +5,7 @@ import {Question} from '../models/question.model';
 import {QuestionService} from '../services/question.service';
 import {map} from 'rxjs/operators';
 import {UserService} from '../services/user.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -18,6 +19,7 @@ export class HomePage implements OnInit {
       private authService: AuthService,
       private questionService: QuestionService,
       private userSrv: UserService,
+      private router: Router,
   ) { }
 
   userEmail: string;
@@ -77,7 +79,9 @@ export class HomePage implements OnInit {
   }
 
   musik(){
-    this.navCtrl.navigateForward('/question/questions');
+    this.router.navigate(['/question/questions'], {
+      state: { userId: this.userId , totalScore : this.totalskor}
+    });
     // console.log('to musik question');
   }
 

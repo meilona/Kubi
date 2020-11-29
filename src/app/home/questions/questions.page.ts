@@ -4,6 +4,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {QuestionService} from '../../services/question.service';
 import {map} from 'rxjs/operators';
 import {NavController} from '@ionic/angular';
+import {stringify} from 'querystring';
 
 // interface Questions {
 //   // id: string;
@@ -22,6 +23,9 @@ import {NavController} from '@ionic/angular';
   styleUrls: ['./questions.page.scss'],
 })
 export class QuestionsPage implements OnInit {
+  userId: any;
+  totalScore: any;
+
   // CONSTANTS
   rightScore = 10;
   maxQuestions = 5;
@@ -45,10 +49,15 @@ export class QuestionsPage implements OnInit {
   constructor(
       private activatedRoute: ActivatedRoute,
       private questionService: QuestionService,
-      private navCtrl: NavController
+      private navCtrl: NavController,
+      private router: Router,
   ) { }
 
   ngOnInit() {
+    this.userId = this.router.getCurrentNavigation().extras.state.userId;
+    this.totalScore = this.router.getCurrentNavigation().extras.state.totalScore;
+    console.log('uId: ' + this.userId);
+    console.log('totalskor: ' + this.totalScore);
     this.question = document.getElementById('question');
     this.choices = Array.from(document.getElementsByClassName('choice-text'));
     // get questions from firebase
@@ -99,7 +108,9 @@ export class QuestionsPage implements OnInit {
 
   getNewQuestion = () => {
     if (this.availableQuesions.length === 0 || this.questionCounter >= this.maxQuestions) {
-      return this.navCtrl.navigateForward('/home/finish-question');
+      return this.router.navigate(['/home/finish-question'], {
+        state: { score: this.score , userId: this.userId , totalScore: this.totalScore}
+      });
     }
     this.questionCounter++;
     const questionIndex = Math.floor(Math.random() * this.availableQuesions.length);
