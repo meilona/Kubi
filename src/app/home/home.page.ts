@@ -78,9 +78,9 @@ export class HomePage implements OnInit {
     
   }
 
-  musik(){
+  musik(ktg: string){
     this.router.navigate(['/question/questions'], {
-      state: { userId: this.userId , totalScore : this.totalskor}
+      state: { userId: this.userId , totalScore : this.totalskor, kategori: ktg}
     });
     // console.log('to musik question');
   }

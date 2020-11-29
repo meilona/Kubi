@@ -67,8 +67,16 @@ export class QuestionService {
   }
 
   // ambil questions dari firebase
-  getQuest(): AngularFirestoreCollection<any>{
-    this.userRef = this.db.collection<any>(this.dbPath, ref => ref);
+  // getQuest(): AngularFirestoreCollection<any>{
+  //   this.userRef = this.db.collection<any>(this.dbPath, ref => ref);
+  //   console.log(this.userRef);
+  //   return this.userRef;
+  // }
+
+  // ambil questions dari firebase berdasarkan kategori yg dipilih
+  getQuest(kategori: string): AngularFirestoreCollection<any>{
+    console.log("kategori : " + kategori);
+    this.userRef = this.db.collection<any>(this.dbPath, ref => ref.where("kategori", '==', kategori));
     console.log(this.userRef);
     return this.userRef;
   }
