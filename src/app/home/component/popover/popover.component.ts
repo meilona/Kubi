@@ -7,10 +7,12 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class PopoverComponent implements OnInit {
   @Input("key") key;
+  @Input("answer") asw; 
   constructor() { }
 
   ngOnInit() {
     console.log(this.key);
+    console.log("answer : " + this.asw);
   }
 
 }

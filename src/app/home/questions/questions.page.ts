@@ -28,6 +28,7 @@ export class QuestionsPage implements OnInit {
   totalScore: any;
   kategori: any; 
   materi: any; 
+  asw: any; 
 
   // CONSTANTS
   rightScore = 10;
@@ -92,8 +93,9 @@ export class QuestionsPage implements OnInit {
           hint: this.loadedQuestion.hint,
           materi: this.loadedQuestion.materi
         };
-        // buat nampung materi 
+        // buat nampung materi dan answer di popover
         this.materi = quest.materi; 
+        this.asw = quest.answer; 
         console.log("kategori question: " + quest.kategori);
         console.log("question : " + quest.question);
         this.questions.push(quest);
@@ -146,7 +148,8 @@ export class QuestionsPage implements OnInit {
       // cssClass: 'my-custom-class',
       backdropDismiss: true,
       translucent: true,
-      componentProps: {key: this.materi}
+      cssClass: 'my-custom-class',
+      componentProps: {key: this.materi, asw: this.asw}
     });
     return await popover.present();
   }

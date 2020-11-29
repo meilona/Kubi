@@ -25,12 +25,14 @@ export class UserService {
     this.storageRef = this.fireStorage.ref('Users');
    }
 
+  // get user berdasarkan skor dan liga 
   getAll(): AngularFirestoreCollection<User>{
     this.userRef = this.db.collection<User>(this.dbPath, ref => ref.orderBy('totalskor', 'desc').limit(10));
     console.log(this.userRef);
     return this.userRef;
   }
 
+  //get user berdasarkan id untuk profile
   getUser(idu: string): AngularFirestoreCollection<User>{
     this.userRef = this.db.collection<User>(this.dbPath, ref => ref.where("id", '==', idu));
     console.log(this.userRef);

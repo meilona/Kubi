@@ -17,19 +17,7 @@ export class LeaderboardPage implements OnInit {
   ) { }
 
   ngOnInit() {
-  //   this.userSrv.getAll().snapshotChanges().pipe(
-  //     map (actions => {
-  //       actions.map (a => {
-  //         console.log("a " , a);
-  //         console.log("data : ", a.payload.doc.data());
-  //         console.log("id ", a.payload.doc.id);
-  //         const data = a.payload.doc.data();
-  //         const id = a.payload.doc.id;
-  //         // return {id, ... data};
-  //       });
-  //     })
-  // );
-
+    // untuk dapetin kejuaraan
     this.userSrv.getAll().snapshotChanges().pipe(
       map(changes =>
         changes.map(c => ({data: c.payload.doc.data()}))
@@ -38,6 +26,7 @@ export class LeaderboardPage implements OnInit {
       console.log(data);
       this.user = data;
       console.log(this.user[0].data.name);
+      console.log(this.user[0].data.storageRef);
     });
   }
 }

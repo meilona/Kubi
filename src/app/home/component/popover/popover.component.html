@@ -1,15 +1,10 @@
 <ion-content>
-  <ion-button (click)="afterClick()">CLose
-  </ion-button>
-  <ion-avatar class="image-center item-avatar">
-    <!-- <img src="/assets/image/2.jpg"/> -->
-    <img src="assets/image/finish_question.png"/>
-    <!-- <p>{{imageUrl}}</p> -->
-  </ion-avatar>
-  <!-- <ion-item> -->
-    <ion-label>
-      {{ key }}
-    </ion-label>
-  <!-- </ion-item> -->
+    <ion-card class="card-background-page" style="height: max-content; background-color: #FFFFC2;">
+      <img src="assets/image/materi.png"/>
+      <div class="text-center" style="padding-bottom: 10px">
+        <ion-text style="text-align: center;">Jawaban yang benar adalah {{ asw }}</ion-text><br>
+        <ion-text class="card-title">{{ key }}</ion-text>
+      </div>
+    </ion-card>
 </ion-content>
 

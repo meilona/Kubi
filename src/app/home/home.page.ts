@@ -58,7 +58,7 @@ export class HomePage implements OnInit {
           this.name = this.User[0].data.name;
           console.log(this.name);
           this.totalskor = this.User[0].data.totalskor;
-          if(this.User[0].data.storageRef!==null){
+          if(this.User[0].data.storageRef != null){
             this.imageUrl = this.User[0].data.storageRef;
           }
           else{

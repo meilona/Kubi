@@ -9,7 +9,7 @@
   <ion-grid>
     <ion-row>
       <ion-col>
-        <h1 style="text-align: center;">Kejuaraan jalak bali</h1>
+        <h1 style="text-align: center;">Kejuaraan Kubi</h1>
       </ion-col>
     </ion-row>
     <ion-row>
@@ -19,8 +19,12 @@
         
         <ion-list>
           <ion-item *ngFor="let liga of user">
-              <ion-avatar>
-                <img src="https://cdn.idntimes.com/content-images/community/2019/02/2018-02-01-39875-1517462499-large-60d97e6631e637497c2db252b926af17_600x400.jpg">
+              <ion-avatar *ngIf="liga.data.storageRef != null">
+                <img [src]="liga.data.storageRef">
+              </ion-avatar>
+
+              <ion-avatar *ngIf="liga.data.storageRef == null">
+                <img src="/assets/image/avatar_profile.png">
               </ion-avatar>
 
               <ion-label style="padding-left: 10px;">
