@@ -103,7 +103,7 @@ export class QuestionsPage implements OnInit {
     const questionIndex = Math.floor(Math.random() * this.availableQuesions.length);
     this.currentQuestion = this.availableQuesions[questionIndex];
 
-    this.question.innerText = this.currentQuestion.question;
+    this.question.innerHTML = this.currentQuestion.question;
 
     this.choices.forEach((choice) => {
       const num = choice.attributes[1].value;
