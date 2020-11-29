@@ -56,7 +56,7 @@ export class QuestionsPage implements OnInit {
         )
     ).subscribe(data => {
       this.questions = [ ];
-      //this.choices = [ ];
+      // this.choices = [ ];
       this.tempQuestion = data;
 
       for (this.i = 0; this.i < this.tempQuestion.length ; this.i++) {
@@ -74,7 +74,7 @@ export class QuestionsPage implements OnInit {
           materi: this.loadedQuestion.materi
         };
         this.questions.push(quest);
-        //this.choices.push(quest.choice1);
+        // this.choices.push(quest.choice1);
       }
       console.log(this.questions);
       console.log(this.choices);
@@ -106,8 +106,8 @@ export class QuestionsPage implements OnInit {
     this.question.innerText = this.currentQuestion.question;
 
     this.choices.forEach((choice) => {
-      // const num = choice.dataset.number;
-      // choice.innerHTML = this.currentQuestion['choice' + num];
+      const num = choice.attributes[1].value;
+      choice.innerHTML = this.currentQuestion['choice' + num];
     });
 
     this.availableQuesions.splice(questionIndex, 1);
