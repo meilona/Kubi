@@ -11,8 +11,12 @@
     <div class="container">
       <div class="ion-justify-content-center">
         <img src="assets/image/question.png">
-        <ion-button (click)="hint()">Hint</ion-button>
         <h2 id="question" style="font-size: 20px;">Pertanyaan:</h2>
+        <ion-buttons slot="end">
+          <ion-button (click)="hint()">
+            <ion-icon slot="icon-only" name="help-circle-outline"></ion-icon>
+          </ion-button>
+        </ion-buttons>
         <br><br>
         <div class="choice-container" (click)="selectedAnswer(0)">
 <!--          <p class="choice-prefix">A</p>-->

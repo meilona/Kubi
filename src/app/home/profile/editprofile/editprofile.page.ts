@@ -17,6 +17,10 @@ export class EditprofilePage implements OnInit {
   name: string; email: string; birthDate: string; totalskor: number;liga: string; 
   selectedFile: any;
   imageUrl: any;
+
+  //buat gambar
+  img1 : any; 
+
   @ViewChild('f',null) f:NgForm;
   private fileName: string;
   constructor(private router: Router,
@@ -67,16 +71,33 @@ export class EditprofilePage implements OnInit {
     this.router.navigate(['/home/profile/',this.key]);
   }
 
-  onFileChanged(event) {
-    this.selectedFile = event.target.files[0];
-    this.fileName = this.selectedFile;
-    console.log("file name:",this.fileName);
-  }
+  // onFileChanged(event) {
+  //   this.selectedFile = event.target.files[0];
+  //   this.fileName = this.selectedFile;
+  //   console.log("file name:",this.fileName);
+  // }
 
   onUpload() {
     console.log(this.fileName + ' is uploaded!');
     this.userSrv.uploadPhotoprofile(this.key, this.fileName);
     // this.imageUrl = this.userSrv.getPhotoprofile(this.key);
     // upload code goes here
+  }
+
+  // untuk trigger foto baru di tampilin di html
+  onFileChange(event) {
+    if (event.target.files && event.target.files[0]) {
+      let reader = new FileReader();
+      reader.onload = (event:any) => {
+        this.img1 = event.target.result;
+      }
+      reader.readAsDataURL(event.target.files[0]);  // to trigger onload
+      this.selectedFile = event.target.files[0];
+      this.fileName = this.selectedFile;
+    }
+    
+    let fileList: FileList = event.target.files;  
+    let file: File = fileList[0];
+    console.log(file);
   }
 }

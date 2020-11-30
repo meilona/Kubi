@@ -31,6 +31,33 @@ ion-img {
 }
 
 
+img{
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+}
+
+.profile-user-img{
+  width: 150px;
+  height: 150px;
+  margin-right: 5px;
+}
+.profile-user-img:hover{
+  filter: brightness(80%);
+}
+
+.imgDesc{
+  visibility: hidden;
+  opacity: 0;
+  color: black;
+}
+.img-wrap:hover .imgDesc{
+  visibility: visible;
+  opacity: 1;
+}
+.image-upload>input {
+display: none;
+}
 
 
 

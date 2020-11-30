@@ -44,10 +44,15 @@
     </div>
 
 
-    <ion-button class="submit-btn" type="submit" [disabled]="!regisForm.valid">Register</ion-button>
+    <div class="p-3 mb-2">
+      <div class="text-center">
+        <ion-button class="submit-btn" type="submit" [disabled]="!regisForm.valid">Register</ion-button>
+      </div>
+    </div>
+    
     <br>
     <label class="error-message">{{errorMessage}}</label>
     <label class="success-message">{{successMessage}}</label>
   </form>
-  <p class="go-to-login">Already have an account? <a (click)="goLoginPage()">Try to Log In.</a></p>
+  <p class="go-to-login">Already have an account? <a (click)="goLoginPage()" style="color: red;">Try to Log In.</a></p>
 </ion-content>
