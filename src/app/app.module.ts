@@ -16,7 +16,7 @@ import { AngularFireDatabaseModule} from '@angular/fire/database';
 import {AngularFireStorageModule} from '@angular/fire/storage';
 import {environment} from '../environments/environment';
 import { HomePageModule } from './home/home.module';
-
+import { IonicStorageModule } from '@ionic/storage';
 
 @NgModule({
   declarations: [AppComponent],
@@ -31,6 +31,7 @@ import { HomePageModule } from './home/home.module';
       AngularFireDatabaseModule,
       AngularFireStorageModule,
       HomePageModule,
+      IonicStorageModule.forRoot()
     ],
   providers: [
     StatusBar,

@@ -23,7 +23,7 @@
           </ion-item>
           <ion-item lines="none">
             <p style="padding-top: 20px;">Mode</p>
-            <ion-toggle (ionChange)="onClick($event)" slot="end"></ion-toggle>
+            <ion-toggle id="themeToggle" (ionChange)="onClick($event)" slot="end" [(ngModel)]="state"></ion-toggle>
           </ion-item>
           <ion-item>
             <p style="padding-top: 20px;">Notifikasi</p>
