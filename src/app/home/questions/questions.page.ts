@@ -6,6 +6,7 @@ import {map} from 'rxjs/operators';
 import {NavController, PopoverController} from '@ionic/angular';
 import {stringify} from 'querystring';
 import { PopoverComponent } from '../component/popover/popover.component';
+import { HintComponent } from '../component/hint/hint.component';
 
 // interface Questions {
 //   // id: string;
@@ -29,6 +30,7 @@ export class QuestionsPage implements OnInit {
   kategori: any; 
   materi: any; 
   asw: any; 
+  petunjuk: any; 
 
   // CONSTANTS
   rightScore = 10;
@@ -93,11 +95,6 @@ export class QuestionsPage implements OnInit {
           hint: this.loadedQuestion.hint,
           materi: this.loadedQuestion.materi
         };
-        // buat nampung materi dan answer di popover
-        this.materi = quest.materi; 
-        this.asw = quest.answer; 
-        console.log("kategori question: " + quest.kategori);
-        console.log("question : " + quest.question);
         this.questions.push(quest);
         // this.choices.push(quest.choice1);
       }
@@ -131,6 +128,16 @@ export class QuestionsPage implements OnInit {
     this.currentQuestion = this.availableQuesions[questionIndex];
 
     this.question.innerHTML = this.currentQuestion.question;
+    console.log("this question : " + this.currentQuestion);
+    console.log("this curr question : " + this.currentQuestion.hint);
+    // buat nampung materi dan answer di popover
+    this.materi = this.currentQuestion.materi; 
+    this.asw = this.currentQuestion.answer; 
+    // buat nampung hint di popover
+    this.petunjuk = this.currentQuestion.hint;
+    console.log("kategori question: " + this.kategori);
+    console.log("question : " + this.question);
+    console.log("petunjuk : " + this.petunjuk);
 
     this.choices.forEach((choice) => {
       const num = choice.attributes[1].value;
@@ -173,6 +180,23 @@ export class QuestionsPage implements OnInit {
     }
     this.getNewQuestion();
     this.rightAnswers = false;
+  }
+
+  async hintPopOver() {
+    console.log("hint: " + this.petunjuk);
+    const popover = await this.pop.create({
+      component: HintComponent,
+      // cssClass: 'my-custom-class',
+      backdropDismiss: true,
+      translucent: true,
+      cssClass: 'my-custom-class',
+      componentProps: {key: this.petunjuk}
+    });
+    return await popover.present();
+  }
+
+  hint(){
+    this.hintPopOver();
   }
 
   
