@@ -84,14 +84,19 @@ export class QuestionsPage implements OnInit {
       for (this.i = 0; this.i < this.tempQuestion.length ; this.i++) {
         this.loadedQuestion = this.tempQuestion[this.i].data;
         const choices = this.loadedQuestion.listanswer.split(',');
+        const pil1 = choices.splice(Math.floor(Math.random() * choices.length),1);
+        const pil2 = choices.splice(Math.floor(Math.random() * choices.length),1);
+        const pil3 = choices.splice(Math.floor(Math.random() * choices.length),1);
+        const pil4 = choices.splice(Math.floor(Math.random() * choices.length),1);
+
         const quest = {
           kategori: this.loadedQuestion.kategori,
           answer: this.loadedQuestion.answer,
           question: this.loadedQuestion.question,
-          choice1: choices[0],
-          choice2: choices[1],
-          choice3: choices[2],
-          choice4: choices[3],
+          choice1: pil1,
+          choice2: pil2,
+          choice3: pil3,
+          choice4: pil4,
           hint: this.loadedQuestion.hint,
           materi: this.loadedQuestion.materi
         };
