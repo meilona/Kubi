@@ -12,6 +12,7 @@ import { Storage } from '@ionic/storage';
 })
 export class SettingPage implements OnInit {
  tema: boolean = false;  
+ state: boolean; 
  
 
   constructor(private authService : AuthService,
@@ -24,11 +25,15 @@ export class SettingPage implements OnInit {
     // untuk dapetin share preferences
     this.storage.get('tema').then((val) => {
       console.log('Your age is', val);
+      if(val == false){
+        this.state = false;
+      } else {
+        this.state = true;
+      }
     });
   }
 
   onClick(event){
-    var state = false;
     const systemDark = window.matchMedia('(prefers-color-scheme: dark)');
     // @ts-ignore
     systemDark.addListener(this.colorTest);
