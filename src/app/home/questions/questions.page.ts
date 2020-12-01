@@ -168,9 +168,12 @@ export class QuestionsPage implements OnInit {
 
   selectedAnswer(e){
     // const selectedChoice = e.target.innerText;
-    const selectedChoice = document.getElementsByClassName('choice-container')[e].lastChild.textContent;
+    var selectedChoice = document.getElementsByClassName('choice-container')[e].lastChild.textContent;
+    var selectedAnswer = this.currentQuestion.answer;
+    selectedChoice = selectedChoice.trim();
+    selectedChoice = selectedChoice.toLowerCase();
+    selectedAnswer = selectedAnswer.toLowerCase();
     console.log(selectedChoice);
-    const selectedAnswer = this.currentQuestion.answer;
     console.log(selectedAnswer + ' banding ' + selectedChoice);
     if (selectedAnswer !== selectedChoice){
       console.log('salah');
