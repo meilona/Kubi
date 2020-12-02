@@ -12,33 +12,22 @@
   <!-- <ion-avatar class="image-center item-avatar">
     <img src="{{imageUrl}}"/>
   </ion-avatar> -->
+  
   <div class="image-upload img-wrap cn image-center item-avatar">
     <label for="file-input">
         <img *ngIf="img1 == null" id="blah" class="profile-user-img img-fluid rounded-circle" src="{{imageUrl}}" alt="User profile picture">
         <!-- jika image nya sudah berubah -->
-        <img *ngIf="img1" id="blah" class="profile-user-img img-fluid rounded-circle" src="{{img1}}" alt="User profile picture">                             
+        <img *ngIf="img1" id="blah" class="profile-user-img img-fluid rounded-circle" [src]="img1" alt="User profile picture">                             
         <ion-icon name="create-outline" slot="icon-only" style="text-align: end; padding-left: 130px;"></ion-icon>
       </label>
-    <input id="file-input" type="file" name="avatar" style="display: none" (change)="onFileChange($event)"/>
-  </div>
-
-  <!-- <ion-row>
-    <ion-col size="4"></ion-col>
-    <input
-            style="display: none"
-            type="file" (change)="onFileChanged($event)"
-            #fileInput> -->
-    <!-- <input type="file" name="inputFile" (change)="chooseFile($event)"> -->
-  <!-- </ion-row> -->
-  <!-- <button class="button" (click)="fileInput.click()">Select File</button> -->
-  <div class="p-3 mb-2">
-    <div class="text-center">
-      <button class="button" (click)="onUpload()">Upload!</button>
-    </div>
+      <!-- <ion-button size="small" (click)="getPicture('camera')">
+        <ion-icon name="camera" slot="start"></ion-icon>
+      </ion-button> -->
+    <!-- <input id="file-input" type="file" name="avatar" style="display: none" (change)="onFileChange($event)"/> -->
+    <input id="file-input" name="avatar" style="display: none" (click)="getPicture('camera')"/>
   </div>
   
-  
-  <ion-grid>
+  <ion-grid style="margin-top: 10px;">
     <ion-row>
       <ion-col>
         <form #f="ngForm" (ngSubmit)="onSubmit(f)">
@@ -53,7 +42,7 @@
             </ion-item>
             
           </ion-list>
-          <ion-button type="submit" color="primary" expand="block" (click)="onFinish()" [disabled]="f.invalid">
+          <ion-button type="submit" color="primary" expand="block" (click)="onFinish()" (click)="onUpload()" [disabled]="f.invalid">
             Simpan
           </ion-button>
         </form> 
