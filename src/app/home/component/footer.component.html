@@ -2,7 +2,7 @@
   <ion-tabs>
     <ion-tab-bar slot="bottom">
   
-      <ion-tab-button  [routerLink]="['/','home','leaderboard']">
+      <ion-tab-button  (click)="goToLeaderboard()">
         <ion-icon name="trophy-outline"></ion-icon>
         <ion-label>Leaderboard</ion-label>
       </ion-tab-button>
@@ -12,7 +12,8 @@
         <ion-label>Menu</ion-label>
       </ion-tab-button>
   
-      <ion-tab-button  [routerLink]="['/','home','profile', userId]">
+      <!-- <ion-tab-button  [routerLink]="['/','home','profile', userId]"> -->
+      <ion-tab-button (click)="goToProfil()">
         <ion-icon name="person-outline"></ion-icon>
         <ion-label>Profile</ion-label>
       </ion-tab-button>

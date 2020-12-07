@@ -5,7 +5,7 @@ import {Question} from '../models/question.model';
 import {QuestionService} from '../services/question.service';
 import {map} from 'rxjs/operators';
 import {UserService} from '../services/user.service';
-import {Router} from '@angular/router';
+import {Router,NavigationExtras} from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -86,7 +86,13 @@ export class HomePage implements OnInit {
   }
 
   pindahprofile(){
-    this.navCtrl.navigateForward('/home/profile/' + this.userId);
+    let navigationExtras: NavigationExtras = {
+      state: {
+        key: this.userId
+      }
+    };
+    this.navCtrl.navigateForward(['profile'],navigationExtras);
+    // this.navCtrl.navigateForward('/home/profile/' + this.userId);
   }
 
 }

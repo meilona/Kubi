@@ -4,7 +4,7 @@ import { UserService } from 'src/app/services/user.service';
 import { take, map } from 'rxjs/operators';
 import {NgForm} from '@angular/forms';
 import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
-import {Platform} from '@ionic/angular';
+import {AlertController, Platform, ToastController} from '@ionic/angular';
 // import {Camera, CameraResultType, CameraSource, Capacitor} from '@capacitor/core';
 import { Plugins, CameraResultType, Capacitor, FilesystemDirectory, CameraPhoto, CameraSource,FilesystemEncoding } from '@capacitor/core';
 const { Camera, Filesystem, Storage } = Plugins;
@@ -34,7 +34,10 @@ export class EditprofilePage implements OnInit {
   constructor(private router: Router,
     private userSrv: UserService,
     private platform: Platform,
-    private sanitizer: DomSanitizer,) {
+    private sanitizer: DomSanitizer,
+    private alertCtrl: AlertController,
+    private toastCtrl : ToastController,
+    ) {
     this.key = this.router.getCurrentNavigation().extras.state.key; // should log out 'bar'
   }
   
@@ -67,20 +70,53 @@ export class EditprofilePage implements OnInit {
     });
   }
 
-  onSubmit(form : NgForm){
+  async onSubmit(form : NgForm){
+    const alert = await this.alertCtrl.create({
+      header: 'Anda yakin ingin mengubah data diri ?',
+      message: '',
+      mode: 'ios',
+      buttons: [
+        {
+          text: 'Batal',
+          role: 'cancel'
+        },
+        {
+          text: 'Iya',
+          handler: async () => {
+
+            if(form.invalid){
+              return;
+            }
+            console.log(form.value);
+            if(this.fileName){
+              await this.onUpload();
+            }
+            await this.userSrv.updateProfile(this.key, form.value);
+            this.onFinish();
+            const toast = await this.toastCtrl.create({
+              message: 'Data diri telah di ubah',
+              duration: 2000,
+              color: 'success'
+            });
+            await toast.present();
+            this.ionViewWillEnter();
+          }
+
+        }
+      ]
+    });
+    await alert.present();
+
+
     console.log('onSubmit');
     console.log(form);
-    if(form.invalid){
-      return;
-    }
-    console.log(form.value);
-    this.userSrv.updateProfile(this.key, form.value);
+    
   }
   chooseFile (event) {
     this.selectedFile = event.target.files
   }
   onFinish(){
-    this.router.navigate(['/home/profile/',this.key]);
+    this.router.navigate(['/profile']);
   }
 
   async getPicture(type:string){

@@ -34,15 +34,15 @@
           <ion-list>
             <ion-item>
               <ion-label position="floating">Nama Pengguna </ion-label>
-              <ion-input type="text"  ngModel name="name" #nameCtrl="ngModel" required [(ngModel)]="name" ></ion-input>
+              <ion-input type="text"  ngModel name="name" #nameCtrl="ngModel" required [(ngModel)]="name" required></ion-input>
             </ion-item>
             <ion-item>
               <ion-label position="floating">Email </ion-label>
-              <ion-input type="email"  ngModel name="email" #emailCtrl="ngModel" required [(ngModel)]="email" ></ion-input>
+              <ion-input type="email"  ngModel name="email" #emailCtrl="ngModel" required [(ngModel)]="email" required></ion-input>
             </ion-item>
             
           </ion-list>
-          <ion-button type="submit" color="primary" expand="block" (click)="onFinish()" (click)="onUpload()" [disabled]="f.invalid">
+          <ion-button type="submit" color="primary" expand="block"  [disabled]="f.invalid">
             Simpan
           </ion-button>
         </form> 

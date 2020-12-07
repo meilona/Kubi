@@ -20,11 +20,11 @@ export class ComponentComponent implements OnInit {
   ngOnInit() {console.log("get key",this.key);}
   btnEditProfile(){
     let navigationExtra : NavigationExtras ={state:{key:this.key}}
-    this.router.navigate(['/home/profile/' + this.key + '/editprofile'],navigationExtra);
+    this.router.navigate(['/profile/editprofile'],navigationExtra);
     this.popoverCtrl.dismiss();
   }
   setting(){
-    this.router.navigate(['/home/profile/' + this.key + '/setting']);
+    this.router.navigate(['/profile/setting']);
     this.popoverCtrl.dismiss();
   }
 

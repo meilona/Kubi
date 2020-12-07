@@ -32,20 +32,29 @@ export class ProfilePage implements OnInit {
     private popoverCtrl : PopoverController,
     private actionSheetCtrl : ActionSheetController,
     public popoverController: PopoverController,
-    ) { }
+    ) { 
+      this.key = this.router.getCurrentNavigation().extras.state.key;
+    }
 
   ngOnInit(){
 
   }
 
   ionViewDidEnter() {
+    
     // untuk dapetin id nya
+
+    // this.key = this.router.snapshot.paramMap.get("key");
     this.activatedRoute.paramMap.subscribe(paramMap => {
-      if(!paramMap.has('profileId')) { return; }
+      // if(!paramMap.has('profileId')) { return; }
+      // if (this.router.getCurrentNavigation().extras.state) {
+        
+      // }
       
-      const key = paramMap.get('profileId');
-      this.key = key;
-      console.log(key);
+      // const key = paramMap.get('profileId');
+      // this.key = key;
+      
+      // console.log(key);
 
       // untuk ambil data berdasarkan id
       this.userSrv.getUser(this.key).snapshotChanges().pipe(
@@ -73,6 +82,7 @@ export class ProfilePage implements OnInit {
           console.log("avatar : " + this.imageUrl);
         }
       });
+      
     });
     // this.imageUrl = this.userSrv.getPhotoprofile(this.key);
     console.log("url",this.imageUrl);
